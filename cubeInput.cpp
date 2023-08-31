@@ -10,7 +10,7 @@ void solvedInput(){
     }    
 }
 void rCubeInput(){
-    freopen("rCubeInput.txt","r",stdin);
+    freopen("CubeInput.txt","r",stdin);
     for(int i=0; i<54;i++){
         cin>>rCube[i];
     }           
@@ -41,7 +41,8 @@ void printrCube(){
     cout << "\n";
 }
 int main(){
-    //rCubeInput();
+    rCubeInput();
+    printrCube();
     solvedInput();
     printrCube();
 
