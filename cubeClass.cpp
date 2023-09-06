@@ -25,12 +25,12 @@ public: int rCube [54];
             if(i == 0 || i == 3 || i == 6 || i == 45 || i == 48 || i == 51)
                 cout << "      ";
             if(i < 9)
-                cout << rrCube[i] << " ";
+                cout << rCube[i] << " ";
             else if(i < 18)
             {
                 int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
                 for(int j=0; j<12; j++)
-                    cout << rrCube[i+array[j]] << " ";
+                    cout << rCube[i+array[j]] << " ";
                 i+=2;
                 if(i == 17)
                     i = 44;
@@ -38,14 +38,14 @@ public: int rCube [54];
                     cout << "\n";
             }
             else
-                cout << rrCube[i] << " ";
+                cout << rCube[i] << " ";
             if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53)
                 cout << "\n";   
         }
         cout << "\n";
     }
 
-    void turnUp()
+    void turnUpCw()
     {
         int temp = rCube[1];
         rCube[1] = rCube[3];
@@ -67,8 +67,13 @@ public: int rCube [54];
             rCube[36+i] = temp;
         }
     }
+    void turnUpAcw(){
+        turnDownCw();
+        turnDownCw();
+        turnDownCw();
+    }
 
-    void turnDown()
+    void turnDownCw()
     {
         int temp = rCube[46];
         rCube[46] = rCube[48];
@@ -90,8 +95,13 @@ public: int rCube [54];
             rCube[24+i] = temp;
         }
     }
+    void turnDownAcw(){
+        turnDownAcw();
+        turnDownAcw();
+        turnDownAcw();
+    }
 
-    void turnLeft()
+    void turnLeftCw()
     {
         int temp =  rCube[10];
         rCube[10] = rCube[12];
@@ -113,8 +123,13 @@ public: int rCube [54];
             rCube[18+(i*3)] = temp;
         }
     }
+    void turnLeftAcw(){
+        turnLeftCw();
+        turnDownCw();
+        turnDownCw();
+    }
 
-    void turnRight()
+    void turnRightCw()
     {
         int temp = rCube[28];
         rCube[28] = rCube[30];
@@ -136,63 +151,87 @@ public: int rCube [54];
             rCube[42-(i*3)] = temp;
         }
     }
-
-    void turnFront()
-{
-    int temp = rCube[19];
-    rCube[19] = rCube[21];
-    rCube[21] = rCube[25];
-    rCube[25] = rCube[23];
-    rCube[23] = temp;
-    temp = rCube[18];
-    rCube[18] = rCube[24];
-    rCube[24] = rCube[26];
-    rCube[26] = rCube[20];
-    rCube[20] = temp;
-
-    for(int i=0; i<3; i++)
-    {
-        temp = rCube[6+i];
-        rCube[6+i] = rCube[17-(i*3)];
-        rCube[17-(i*3)] = rCube[47-i];
-        rCube[47-i] = rCube[27+(i*3)];
-        rCube[27+(i*3)] = temp;
+    void turnRightAcw(){
+        turnRightCw();
+        turnRightCw();
+        turnRightCw();
     }
-}
 
-void turnBack()
-{
-    int temp = rCube[37];
-    rCube[37] = rCube[39];
-    rCube[39] = rCube[43];
-    rCube[43] = rCube[41];
-    rCube[41] = temp;
-    temp = rCube[36];
-    rCube[36] = rCube[42];
-    rCube[42] = rCube[44];
-    rCube[44] = rCube[38];
-    rCube[38] = temp;
-
-    for(int i=0; i<3; i++)
+    void turnFrontCw()
     {
-        temp = rCube[0+i];
-        rCube[0+i] = rCube[29+(i*3)];
-        rCube[29+(i*3)] = rCube[53-i];
-        rCube[53-i] = rCube[15-(i*3)];
-        rCube[15-(i*3)] = temp;
+        int temp = rCube[19];
+        rCube[19] = rCube[21];
+        rCube[21] = rCube[25];
+        rCube[25] = rCube[23];
+        rCube[23] = temp;
+        temp = rCube[18];
+        rCube[18] = rCube[24];
+        rCube[24] = rCube[26];
+        rCube[26] = rCube[20];
+        rCube[20] = temp;
+
+        for(int i=0; i<3; i++)
+        {
+            temp = rCube[6+i];
+            rCube[6+i] = rCube[17-(i*3)];
+            rCube[17-(i*3)] = rCube[47-i];
+            rCube[47-i] = rCube[27+(i*3)];
+            rCube[27+(i*3)] = temp;
+        }
     }
-}
+    void turnFrontAcw(){
+        turnFrontCw();
+        turnFrontCw();
+        turnFrontCw();
+    }
+    
+    void turnBackCw()
+    {
+        int temp = rCube[37];
+        rCube[37] = rCube[39];
+        rCube[39] = rCube[43];
+        rCube[43] = rCube[41];
+        rCube[41] = temp;
+        temp = rCube[36];
+        rCube[36] = rCube[42];
+        rCube[42] = rCube[44];
+        rCube[44] = rCube[38];
+        rCube[38] = temp;
 
-
+        for(int i=0; i<3; i++)
+        {
+            temp = rCube[0+i];
+            rCube[0+i] = rCube[29+(i*3)];
+            rCube[29+(i*3)] = rCube[53-i];
+            rCube[53-i] = rCube[15-(i*3)];
+            rCube[15-(i*3)] = temp;
+        }
+    }
+    void turnBackAcw(){
+        turnBackCw();
+        turnBackCw();
+        turnBackCw();
+    }
+    
 };
 int main(){
-        // rrCubeInput();
-        // printrrCube();
+        // rCubeInput();
+        // printrCube();
         // solvedInput();
         // printrrCube();
     rCube obj1;
-    obj1.rCubeInput();
-    obj1.printrCube();
+    // obj1.rCubeInput();
+    // obj1.printrCube();
     obj1.solvedInput();
+    // obj1.turnFrontCw();
+    // obj1.turnFrontAcw();
+    obj1.turnUpCw();
+    obj1.printrCube();
+    obj1.turnDownCw();
+    obj1.printrCube();
+    obj1.turnDownCw();
+    obj1.printrCube();
+    obj1.turnDownCw();
+    obj1.printrCube();
 
 }
