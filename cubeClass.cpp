@@ -10,40 +10,40 @@ public: int rCube [54];
         int num=0;
         for(int i=0; i<54;i++){
             if(i%9==0)num++;
-            rCube[i]=num;       
-        }    
+            rCube[i]=num;
+        }
     }
 
     void rCubeInput(){
         freopen("CubeInput.txt","r",stdin);
         for(int i=0; i<54;i++){
             cin>>rCube[i];
-        }           
+        }
     }
     void color(int c){
 
         switch(c) {
-        case '1':
+        case 1:
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-            break;
 
-        case '3':
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
             break;
-
-        case '2':
+        case 2:
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
             break;
 
-        case '5':
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+        case 3:
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
             break;
 
-        case '4':
+        case 4:
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
             break;
 
-        case '6':
+        case 5:
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+            break;
+
+        case 6:
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
             break;
         }
@@ -59,7 +59,7 @@ public: int rCube [54];
                 color(rCube[i]);
                 cout << rCube[i] << " ";
             }
-            
+
             else if(i < 18)
             {
                 int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
@@ -78,7 +78,7 @@ public: int rCube [54];
                 cout << rCube[i] << " ";
             }
             if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53)
-                cout << "\n";   
+                cout << "\n";
         }
         cout << "\n";
     }
@@ -222,7 +222,7 @@ public: int rCube [54];
         turnFrontCw();
         turnFrontCw();
     }
-    
+
     void turnBackCw()
     {
         int temp = rCube[37];
@@ -250,7 +250,7 @@ public: int rCube [54];
         turnBackCw();
         turnBackCw();
     }
-    
+
 };
 int main(){
     // Handle STD_OUTPUT_HANDLE;
@@ -286,22 +286,22 @@ int main(){
     cout<<"E";
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
     cout<<"R\n\n";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-    rCube obj1;
-    // obj1.rCubeInput();
-    // obj1.printrCube();
-    obj1.solvedInput();
-    // obj1.turnFrontCw();
-    // obj1.turnFrontAcw();
-    obj1.turnUpCw();
-    obj1.printrCube();
-    obj1.turnDownCw();
-    obj1.printrCube();
-    obj1.turnDownCw();
-    obj1.printrCube();
-    obj1.turnDownCw();
-    obj1.printrCube();
+
+     rCube obj1;
+     // obj1.rCubeInput();
+     // obj1.printrCube();
+     obj1.solvedInput();
+     // obj1.turnFrontCw();
+     // obj1.turnFrontAcw();
+     obj1.turnUpCw();
+     obj1.printrCube();
+//     obj1.turnDownCw();
+//     obj1.printrCube();
+//     obj1.turnDownCw();
+//     obj1.printrCube();
+//     obj1.turnDownCw();
+//     obj1.printrCube();
+ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
 }
