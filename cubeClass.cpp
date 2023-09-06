@@ -1,4 +1,6 @@
 #include<bits/stdc++.h>
+#include <iostream>
+#include <Windows.h>
 using namespace std;
 
 class rCube {
@@ -13,32 +15,68 @@ public: int rCube [54];
     }
 
     void rCubeInput(){
-        freopen("rCubeInput.txt","r",stdin);
+        freopen("CubeInput.txt","r",stdin);
         for(int i=0; i<54;i++){
             cin>>rCube[i];
         }           
     }
+    void color(int c){
+
+        switch(c) {
+        case '1':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+            break;
+
+        case '3':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+            break;
+
+        case '2':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+            break;
+
+        case '5':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+            break;
+
+        case '4':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+            break;
+
+        case '6':
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+            break;
+        }
+    }
+
 
     void printrCube(){
         for(int i=0; i<54; i++)
         {
             if(i == 0 || i == 3 || i == 6 || i == 45 || i == 48 || i == 51)
                 cout << "      ";
-            if(i < 9)
+            if(i < 9){
+                color(rCube[i]);
                 cout << rCube[i] << " ";
+            }
+            
             else if(i < 18)
             {
                 int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
-                for(int j=0; j<12; j++)
+                for(int j=0; j<12; j++){
+                    color(rCube[i+array[j]]);
                     cout << rCube[i+array[j]] << " ";
+                }
                 i+=2;
                 if(i == 17)
                     i = 44;
                 else
                     cout << "\n";
             }
-            else
+            else{
+                color(rCube[i]);
                 cout << rCube[i] << " ";
+            }
             if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53)
                 cout << "\n";   
         }
@@ -215,10 +253,42 @@ public: int rCube [54];
     
 };
 int main(){
-        // rCubeInput();
-        // printrCube();
-        // solvedInput();
-        // printrrCube();
+    // Handle STD_OUTPUT_HANDLE;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    cout<<"\n\nR";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+    cout<<"U";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    cout<<"B";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    cout<<"I";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    cout<<"K";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+    cout<<"'S";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    cout<<" C";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+    cout<<"U";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    cout<<"B";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    cout<<"E ";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+    cout<<"S";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
+    cout<<"O";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    cout<<"L";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
+    cout<<"V";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    cout<<"E";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    cout<<"R\n\n";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
     rCube obj1;
     // obj1.rCubeInput();
     // obj1.printrCube();
