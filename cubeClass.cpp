@@ -8,6 +8,7 @@ class rCube
 public:
     int rCube [54];
     //defining  white=1,orange=2,green=3,red=4,blue=5 and yellow=6 respectively
+    //centre block is 22 numbered element
     void solvedInput()
     {
         int num=0;
@@ -272,6 +273,7 @@ public:
 
     void cubeUp()
     {
+        cout<<"Move Your Cube UP!"<<endl;
         int temp[9];
         for(int i=0; i<9; i++)
         {
@@ -281,8 +283,85 @@ public:
             rCube[i+45]=rCube[18+i];
             rCube[i+18]=temp[i];
         }
+         for(int i=0; i<9;i++){
+            temp[i]=rCube[i+9];
+        }
+        rCube[9]=temp[6];
+        rCube[10]=temp[3];
+        rCube[11]=temp[0];
+        rCube[12]=temp[7];
+        rCube[13]=temp[4];
+        rCube[14]=temp[1];
+        rCube[15]=temp[8];
+        rCube[16]=temp[5];
+        rCube[17]=temp[2];
+        for(int i=0; i<9;i++){
+            temp[i]=rCube[i+45];
+        }
+        rCube[45]=temp[2];
+        rCube[46]=temp[5];
+        rCube[47]=temp[8];
+        rCube[48]=temp[1];
+        rCube[49]=temp[4];
+        rCube[50]=temp[7];
+        rCube[51]=temp[0];
+        rCube[52]=temp[3];
+        rCube[53]=temp[6];
+    
 
     }
+    void cubeRight(){
+        cout<<"Move Your Cube Right!"<<endl;
+        int temp[9];
+        for(int i=0;i<9;i++){
+            temp[i]=rCube[i+9];
+            rCube[i+9]=rCube[i+18];
+            rCube[i+18]=rCube[i+27];
+            rCube[i+27]=rCube[i+36];
+            rCube[i+36]=temp[i];
+        }
+        for(int i=0; i<9;i++){
+            temp[i]=rCube[i];
+        }
+        rCube[0]=temp[6];
+        rCube[1]=temp[3];
+        rCube[2]=temp[0];
+        rCube[3]=temp[7];
+        rCube[4]=temp[4];
+        rCube[5]=temp[1];
+        rCube[6]=temp[8];
+        rCube[7]=temp[5];
+        rCube[8]=temp[2];
+        for(int i=0; i<9;i++){
+            temp[i]=rCube[i+45];
+        }
+        rCube[45]=temp[2];
+        rCube[46]=temp[5];
+        rCube[47]=temp[8];
+        rCube[48]=temp[1];
+        rCube[49]=temp[4];
+        rCube[50]=temp[7];
+        rCube[51]=temp[0];
+        rCube[52]=temp[3];
+        rCube[53]=temp[6];
+    
+    }
+    void alignCenter(int centre){
+        while(rCube[22]!=centre){
+            cubeUp();
+            
+            if(rCube[22]==centre)break;
+             cubeRight();
+             
+        }
+
+    }
+    // void whiteCross(){
+    //     alignCenter(1);
+    //     while(rCube[19]!=1 && rCube[21]!=1 && rCube[23]!=1 && rCube[25]!=1){
+
+    //     }
+    // }
 
 };
 int main()
@@ -323,21 +402,24 @@ int main()
 
 
     rCube obj1;
-    // obj1.rCubeInput();
+    obj1.rCubeInput();
     // obj1.printrCube();
-    obj1.solvedInput();
+    // obj1.solvedInput();
     // obj1.turnFrontCw();
     // obj1.turnFrontAcw();
 //     obj1.turnUpCw();
-    obj1.printrCube();
+    // obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
-        obj1.cubeUp();
+        // obj1.cubeUp();
+        // obj1.cubeRight();
         obj1.printrCube();
+        obj1.alignCenter(5); 
+        obj1.printrCube();  
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
 }
