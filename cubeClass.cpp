@@ -3,26 +3,34 @@
 #include <Windows.h>
 using namespace std;
 
-class rCube {
-public: int rCube [54];
+class rCube
+{
+public:
+    int rCube [54];
     //defining  white=1,orange=2,green=3,red=4,blue=5 and yellow=6 respectively
-    void solvedInput(){
+    void solvedInput()
+    {
         int num=0;
-        for(int i=0; i<54;i++){
+        for(int i=0; i<54; i++)
+        {
             if(i%9==0)num++;
             rCube[i]=num;
         }
     }
 
-    void rCubeInput(){
+    void rCubeInput()
+    {
         freopen("CubeInput.txt","r",stdin);
-        for(int i=0; i<54;i++){
+        for(int i=0; i<54; i++)
+        {
             cin>>rCube[i];
         }
     }
-    void color(int c){
+    void color(int c)
+    {
 
-        switch(c) {
+        switch(c)
+        {
         case 1:
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
@@ -50,12 +58,14 @@ public: int rCube [54];
     }
 
 
-    void printrCube(){
+    void printrCube()
+    {
         for(int i=0; i<54; i++)
         {
             if(i == 0 || i == 3 || i == 6 || i == 45 || i == 48 || i == 51)
                 cout << "      ";
-            if(i < 9){
+            if(i < 9)
+            {
                 color(rCube[i]);
                 cout << rCube[i] << " ";
             }
@@ -63,7 +73,8 @@ public: int rCube [54];
             else if(i < 18)
             {
                 int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
-                for(int j=0; j<12; j++){
+                for(int j=0; j<12; j++)
+                {
                     color(rCube[i+array[j]]);
                     cout << rCube[i+array[j]] << " ";
                 }
@@ -73,7 +84,8 @@ public: int rCube [54];
                 else
                     cout << "\n";
             }
-            else{
+            else
+            {
                 color(rCube[i]);
                 cout << rCube[i] << " ";
             }
@@ -105,7 +117,8 @@ public: int rCube [54];
             rCube[36+i] = temp;
         }
     }
-    void turnUpAcw(){
+    void turnUpAcw()
+    {
         turnDownCw();
         turnDownCw();
         turnDownCw();
@@ -133,7 +146,8 @@ public: int rCube [54];
             rCube[24+i] = temp;
         }
     }
-    void turnDownAcw(){
+    void turnDownAcw()
+    {
         turnDownAcw();
         turnDownAcw();
         turnDownAcw();
@@ -161,7 +175,8 @@ public: int rCube [54];
             rCube[18+(i*3)] = temp;
         }
     }
-    void turnLeftAcw(){
+    void turnLeftAcw()
+    {
         turnLeftCw();
         turnDownCw();
         turnDownCw();
@@ -189,7 +204,8 @@ public: int rCube [54];
             rCube[42-(i*3)] = temp;
         }
     }
-    void turnRightAcw(){
+    void turnRightAcw()
+    {
         turnRightCw();
         turnRightCw();
         turnRightCw();
@@ -217,7 +233,8 @@ public: int rCube [54];
             rCube[27+(i*3)] = temp;
         }
     }
-    void turnFrontAcw(){
+    void turnFrontAcw()
+    {
         turnFrontCw();
         turnFrontCw();
         turnFrontCw();
@@ -245,14 +262,31 @@ public: int rCube [54];
             rCube[15-(i*3)] = temp;
         }
     }
-    void turnBackAcw(){
+
+    void turnBackAcw()
+    {
         turnBackCw();
         turnBackCw();
         turnBackCw();
     }
 
+    void cubeUp()
+    {
+        int temp[9];
+        for(int i=0; i<9; i++)
+        {
+            temp[i]=rCube[i];
+            rCube[i]=rCube[i+36];
+            rCube[i+36]=rCube[i+45];
+            rCube[i+45]=rCube[18+i];
+            rCube[i+18]=temp[i];
+        }
+
+    }
+
 };
-int main(){
+int main()
+{
     // Handle STD_OUTPUT_HANDLE;
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
     cout<<"\n\nR";
@@ -288,20 +322,22 @@ int main(){
     cout<<"R\n\n";
 
 
-     rCube obj1;
-     // obj1.rCubeInput();
-     // obj1.printrCube();
-     obj1.solvedInput();
-     // obj1.turnFrontCw();
-     // obj1.turnFrontAcw();
-     obj1.turnUpCw();
-     obj1.printrCube();
+    rCube obj1;
+    // obj1.rCubeInput();
+    // obj1.printrCube();
+    obj1.solvedInput();
+    // obj1.turnFrontCw();
+    // obj1.turnFrontAcw();
+//     obj1.turnUpCw();
+    obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
 //     obj1.turnDownCw();
 //     obj1.printrCube();
- SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        obj1.cubeUp();
+        obj1.printrCube();
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
 }
