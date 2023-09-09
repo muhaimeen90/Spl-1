@@ -117,12 +117,18 @@ public:
             rCube[27+i] = rCube[36+i];
             rCube[36+i] = temp;
         }
+        cout<<"U ";
     }
     void turnUpAcw()
     {
-        turnDownCw();
-        turnDownCw();
-        turnDownCw();
+        turnUpCw();
+        turnUpCw();
+        turnUpCw();
+        cout<<"U' ";
+    }
+    void turnUp2(){
+        turnUpCw();
+        turnUpCw();
     }
 
     void turnDownCw()
@@ -146,12 +152,18 @@ public:
             rCube[33+i] = rCube[24+i];
             rCube[24+i] = temp;
         }
+        cout<<"D ";
     }
     void turnDownAcw()
     {
         turnDownAcw();
         turnDownAcw();
         turnDownAcw();
+        cout<<"D' ";
+    }
+     void turnDown2(){
+        turnDownCw();
+        turnDownCw();
     }
 
     void turnLeftCw()
@@ -175,14 +187,20 @@ public:
             rCube[45+(i*3)] = rCube[18+(i*3)];
             rCube[18+(i*3)] = temp;
         }
+        cout<<"L ";
     }
     void turnLeftAcw()
     {
         turnLeftCw();
-        turnDownCw();
-        turnDownCw();
+        turnLeftCw();
+        turnLeftCw();
+        cout<<"L' ";
+        
     }
-
+     void turnLeft2(){
+        turnLeftCw();
+        turnLeftCw();
+    }
     void turnRightCw()
     {
         int temp = rCube[28];
@@ -204,12 +222,19 @@ public:
             rCube[47+(i*3)] = rCube[42-(i*3)];
             rCube[42-(i*3)] = temp;
         }
+        cout<<"R ";
     }
     void turnRightAcw()
     {
         turnRightCw();
         turnRightCw();
         turnRightCw();
+        cout<<"R' ";
+    }
+    void turnRight2(){
+        turnRightCw();
+        turnRightCw();
+
     }
 
     void turnFrontCw()
@@ -233,10 +258,16 @@ public:
             rCube[47-i] = rCube[27+(i*3)];
             rCube[27+(i*3)] = temp;
         }
+        cout<<"F ";
     }
     void turnFrontAcw()
     {
         turnFrontCw();
+        turnFrontCw();
+        turnFrontCw();
+        cout<<"F' ";
+    }
+     void turnFront2(){
         turnFrontCw();
         turnFrontCw();
     }
@@ -262,6 +293,7 @@ public:
             rCube[53-i] = rCube[15-(i*3)];
             rCube[15-(i*3)] = temp;
         }
+        cout<<"B ";
     }
 
     void turnBackAcw()
@@ -269,11 +301,15 @@ public:
         turnBackCw();
         turnBackCw();
         turnBackCw();
+        cout<<"B' ";
     }
-
+     void turnBack2(){
+        turnBackCw();
+        turnBackCw();
+    }
     void cubeUp()
     {
-        cout<<"Move Your Cube UP!"<<endl;
+        cout<<"MU ";
         int temp[9];
         for(int i=0; i<9; i++)
         {
@@ -283,7 +319,7 @@ public:
             rCube[i+45]=rCube[18+i];
             rCube[i+18]=temp[i];
         }
-         for(int i=0; i<9;i++){
+        for(int i=0; i<9;i++){
             temp[i]=rCube[i+9];
         }
         rCube[9]=temp[6];
@@ -307,11 +343,16 @@ public:
         rCube[51]=temp[0];
         rCube[52]=temp[3];
         rCube[53]=temp[6];
-    
+
 
     }
+    void cubeDown(){
+        cubeUp();
+        cubeUp();
+        cubeUp();
+    }
     void cubeRight(){
-        cout<<"Move Your Cube Right!"<<endl;
+        cout<<"MR";
         int temp[9];
         for(int i=0;i<9;i++){
             temp[i]=rCube[i+9];
@@ -344,26 +385,472 @@ public:
         rCube[51]=temp[0];
         rCube[52]=temp[3];
         rCube[53]=temp[6];
-    
+
     }
+    void cubeLeft(){
+        cubeRight();
+        cubeRight();
+        cubeRight();
+    }
+    void turnMiddleCw()
+    {
+    cubeDown();
+    turnRightCw();
+    turnLeftAcw();
+    }
+    void turnMiddleAcw(){
+        turnMiddleCw();
+        turnMiddleCw();
+        turnMiddleCw();
+    }
+
+    void turnEquatorCw()
+    {
+    cubeRight();
+    turnUpCw();
+    turnDownAcw();
+    }
+    void turnEquatorAcw(){
+        turnEquatorCw();
+        turnEquatorCw();
+        turnEquatorCw();
+    }
+    void turnStandingCw()
+    {
+    cubeRight();
+    turnFrontAcw();
+    turnBackCw();
+    }
+    void turnStandingAcw(){
+        turnStandingCw();
+        turnStandingCw();
+        turnStandingCw();   
+    }
+
     void alignCenter(int centre){
         while(rCube[22]!=centre){
             cubeUp();
             
             if(rCube[22]==centre)break;
-             cubeRight();
-             
+            cubeRight();
+
         }
 
     }
+    void solver(){
+        cout<<"Move Lists: ";
+    //     whiteCross();
+    //     cout<<"\n";
+    // }
+
     // void whiteCross(){
+
     //     alignCenter(1);
     //     while(rCube[19]!=1 && rCube[21]!=1 && rCube[23]!=1 && rCube[25]!=1){
 
     //     }
     // }
+       bool finish = false, step1 = false, step2 = false, step3 = false, step4 = false, step5 = false, step6 = false, step7 = false;
+    int diff, diff2, temp;
+    int currentSide[] = {2, 3, 4, 5};
+    int i = 1, counter;
 
-};
+    //Step 1: Solve white cross
+    while(!step1)
+    {
+        //Check is white cross and corresponding color match
+        if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
+        {
+            bool side1 = false, side2 = false, side3 = false, side4 = false;
+            for(int j=0; j<4; j++)
+            {
+                if(rCube[16] == currentSide[j] && rCube[13] == currentSide[j])
+                {
+                    side1 = true;
+                    break;
+                }
+                else
+                    side1 = false;
+            }
+            for(int j=0; j<4; j++)
+            {
+                if(rCube[25] == currentSide[j] && rCube[22] == currentSide[j])
+                {
+                    side2 = true;
+                    break;
+                }
+                else
+                    side2 = false;
+            }
+            for(int j=0; j<4; j++)
+            {
+                if(rCube[34] == currentSide[j] && rCube[31] == currentSide[j])
+                {
+                    side3 = true;
+                    break;
+                }
+                else
+                    side3 = false;
+            }
+            for(int j=0; j<4; j++)
+            {
+                if(rCube[43] == currentSide[j] && rCube[40] == currentSide[j])
+                {
+                    side4 = true;
+                    break;
+                }
+                else
+                    side4 = false;
+            }
+            if(side1 && side2 && side3 && side4)
+                step1 = true;
+        }
+        if(!step1)
+        {
+            while(!finish)
+            {
+                //Checking white cross
+                if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
+                        finish = true;
+                else
+                {
+                    //Check top
+                    if(rCube[1] == 6) //First edge
+                    {
+                        diff = currentSide[i] - rCube[37];
+                        if(diff == 1 || diff == -3)
+                        {
+                            turnUpCw();
+                            turnLeft2();
+                            // sequence.push_back(9);
+                            // sequence.push_back(20);
+                        }
+                        else if(diff == 0)
+                        {
+                            turnUp2();
+                            turnFront2();
+                            // sequence.push_back(18);
+                            // sequence.push_back(22);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnUpCw();
+                            turnRight2();
+                            // sequence.push_back(0);
+                            // sequence.push_back(21);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnBack2();
+                            // sequence.push_back(23);
+                        }
+                    }
+                    else if(rCube[3] == 6) //Second edge
+                    {
+                        diff = currentSide[i] - rCube[10];
+                        if(diff == 1 || diff == -3)
+                        {
+                            turnLeft2();
+                            // sequence.push_back(20);
+                        }
+                        else if(diff == 0)
+                        {
+                            turnUpAcw();
+                            turnFront2();
+                            // sequence.push_back(9);
+                            // sequence.push_back(22);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnUp2();
+                            turnRight2();
+                            // sequence.push_back(18);
+                            // sequence.push_back(21);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnUpCw();
+                            turnBack2();
+                            // sequence.push_back(0);
+                            // sequence.push_back(23);
+                        }
+                    }
+                    else if(rCube[5] == 6) //Third edge
+                    {
+                        diff = currentSide[i] - rCube[28];
+                        if(diff == 1 || diff == -3)
+                        {
+                            turnUp2();
+                            turnLeft2();
+                            // sequence.push_back(18);
+                            // sequence.push_back(20);
+                        }
+                        else if(diff == 0)
+                        {
+                            turnUpCw();
+                            turnFront2();
+                            // sequence.push_back(0);
+                            // sequence.push_back(22);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnRight2();
+                            // sequence.push_back(21);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnUpAcw();
+                            turnBack2();
+                            // sequence.push_back(9);
+                            // sequence.push_back(23);
+                        }
+                    }
+                    else if(rCube[7] == 6) //Fourth edge
+                    {
+                        diff = currentSide[i] - rCube[19];
+                        if(diff == 1 || diff == -3)
+                        {
+                            turnUpCw();
+                            turnLeft2();
+                            // sequence.push_back(0);
+                            // sequence.push_back(20);
+                        }
+                        else if(diff == 0)
+                        {
+                            turnFront2();
+                            // sequence.push_back(22);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnUpAcw();
+                            turnRight2();
+                            // sequence.push_back(9);
+                            // sequence.push_back(21);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnUp2();
+                            turnBack2();
+                            // sequence.push_back(18);
+                            // sequence.push_back(23);
+                        }
+                    }
+                    else if(rCube[19] == 6) //Check side first edge
+                    {
+                        diff = currentSide[i] - rCube[7];
+                        if(diff == 0)
+                        {
+                            turnUpCw();
+                            turnLeftCw();
+                            turnFrontAcw();
+                            turnLeftAcw();
+                            turnUpAcw();
+                            // int array[] = {0,2,13,11,9};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnFrontCw();
+                            turnRightAcw();
+                            turnFrontAcw();
+                            // int array[] = {4,12,13};
+                            // sequence.insert(sequence.end(), array, array+3);
+                        }
+                        else if(diff == 1 || diff == -3)
+                        {
+                            turnFrontAcw();
+                            turnLeftCw();
+                            turnFrontCw();
+                            // int array[] = {13,2,4};
+                            // sequence.insert(sequence.end(), array, array+3);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnUpCw();
+                            turnLeftAcw();
+                            turnBackCw();
+                            turnLeftCw();
+                            turnUpAcw();
+                            // int array[] = {0,11,5,2,9};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                    }
+                    else if(rCube[21] == 6) //Second edge
+                    {
+                        diff = currentSide[i] - rCube[14];
+                        if(diff == 0)
+                        {
+                            turnLeftAcw();
+                            turnUpAcw();
+                            turnFront2();
+                            turnUpCw();
+                            turnLeftCw();
+                            // int array[] = {11,9,22,0,2};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == 1 || diff == -3)
+                        {
+                            turnLeftCw();
+                            // sequence.push_back(2);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnLeftAcw();
+                            turnUp2();
+                            turnRight2();
+                            turnUp2();
+                            turnLeftCw();
+                            // int array[] = {11,18,21,18,2};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnLeftAcw();
+                            turnUpCw();
+                            turnBack2();
+                            turnUpAcw();
+                            turnLeftCw();
+                            // int array[] = {11,0,23,9,2};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                    }
+                    else if(rCube[23] == 6) //Third edge
+                    {
+                        diff = currentSide[i] - rCube[30];
+                        if(diff == 0)
+                        {
+                            turnRightCw();
+                            turnUpCw();
+                            turnFront2();
+                            turnUpAcw();
+                            turnRightAcw();
+                            // int array[] = {3,0,22,9,12};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == 1 || diff == -3)
+                        {
+                            turnRightCw();
+                            turnUp2();
+                            turnLeft2();
+                            turnUp2();
+                            turnRightAcw();
+                            // int array[] = {3,18,20,18,12};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnRightAcw();
+                            // sequence.push_back(12);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnRightCw();
+                            turnUpAcw();
+                            turnBack2();
+                            turnUpCw();
+                            turnRightAcw();
+                            // int array[] = {3,9,23,0,12};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                    }
+                    else if(rCube[25] == 6) //Fourth edge
+                    {
+                        diff = currentSide[i] - rCube[46];
+                        if(diff == 0)
+                        {
+                            turnFrontAcw();
+                            turnRightCw();
+                            turnUpCw();
+                            turnFront2();
+                            turnRightAcw();
+                            // int array[] = {13,3,0,22,12};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                        else if(diff == 1 || diff == -3)
+                        {
+                            turnFrontCw();
+                            turnLeftCw();
+                            turnFrontAcw();
+                            // int array[] = {4,2,13};
+                            // sequence.insert(sequence.end(), array, array+3);
+                        }
+                        else if(diff == -1 || diff == 3)
+                        {
+                            turnFrontAcw();
+                            turnRightAcw();
+                            turnFrontCw();
+                            // int array[] = {13,12,4};
+                            // sequence.insert(sequence.end(), array, array+3);
+                        }
+                        else if(diff == -2 || diff == 2)
+                        {
+                            turnFrontAcw();
+                            turnRightCw();
+                            turnUpAcw();
+                            turnBack2();
+                            turnRightAcw();
+                            // int array[] = {13,3,9,23,12};
+                            // sequence.insert(sequence.end(), array, array+5);
+                        }
+                    }
+                    cubeLeft();
+                    // sequence.push_back(29);
+                    i++;
+                    if(i == 4)
+                        i = 0;
+                }
+            }
+            if(finish)
+            {
+                //Check bottom
+                if(rCube[25] != rCube[22])
+                {
+                    diff = rCube[22] - rCube[25];
+                    if(diff == 1 || diff == -3)
+                    {
+                        turnMiddleAcw();
+                        turnStandingCw();
+                        turnUpCw();
+                        turnStandingAcw();
+                        turnUp2();
+                        turnMiddleCw();
+                        // int array[] = {15,8,0,17,18,6};
+                        // sequence.insert(sequence.end(), array, array+6);
+                    }
+                    else if(diff == -1 || diff == 3)
+                    {
+                        turnMiddleAcw();
+                        turnStandingAcw();
+                        turnUpAcw();
+                        turnStandingCw();
+                        turnUp2();
+                        turnMiddleCw();
+                        // int array[] = {15,17,9,8,18,6};
+                        // sequence.insert(sequence.end(), array, array+6);
+                    }
+                    else if(diff == 2 || diff == -2)
+                    {
+                        turnMiddleAcw();
+                        turnUpCw();
+                        turnMiddleCw();
+                        turnMiddleCw();
+                        turnUpCw();
+                        turnMiddleCw();
+                        turnMiddleCw();
+                        turnUpCw();
+                        turnMiddleCw();
+                        // int array[] = {15,0,24,0,24,0,6};
+                        // sequence.insert(sequence.end(), array, array+7);
+                    }
+                }
+                cubeLeft();
+                // sequence.push_back(29);
+            }
+        }
+    }
+    }
+    }
+;
 int main()
 {
     // Handle STD_OUTPUT_HANDLE;
@@ -417,9 +904,10 @@ int main()
 //     obj1.printrCube();
         // obj1.cubeUp();
         // obj1.cubeRight();
-        obj1.printrCube();
-        obj1.alignCenter(5); 
-        obj1.printrCube();  
+    obj1.printrCube();
+    obj1.solver();
+    // obj1.alignCenter(6); 
+    obj1.printrCube();  
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
 }
