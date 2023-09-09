@@ -362,7 +362,7 @@ public:
     }
     void cubeRight()
     {
-        cout<<"MR";
+        cout<<"MR ";
         int temp[9];
         for(int i=0; i<9; i++)
         {
