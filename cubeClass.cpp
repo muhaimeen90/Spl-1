@@ -1217,8 +1217,8 @@ void cubeDown()
             // obj1.cubeUp();
             // obj1.cubeRight();
             obj1.printrCube();
-            if(obj1.checkValid())obj1.solver();
-            else cout<<"Invalid rCube!"<<endl;
+            obj1.solver();
+            obj1.printrCube();
             // obj1.alignCenter(6);
 //            obj1.printrCube();
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
