@@ -28,47 +28,8 @@ public:
             cin>>rCube[i];
         }
     }
-    bool checkValid()
-{
-	int diff;
-	if(rCube[4] == 1 && rCube[13] == 2 && rCube[22] == 3 && rCube[31] == 4 && rCube[40] == 5 && rCube[49] == 6)
-	{
-		for(int i=0; i<4; i++)
-		{
-			diff = rCube[21] - rCube[14];
-			if(diff == 1 || diff == -3)
-				cubeLeft();
-			else
-				return false;
-		}
-		for(int i=0; i<4; i++)
-		{
-			diff = rCube[23] - rCube[30];
-			if(diff == -1 || diff == 3)
-				cubeLeft();
-			else
-				return false;
-		}
-		for(int i=0; i<4; i++)
-		{
-			diff = rCube[19] - rCube[7];
-			if(diff == 2 || diff == 1 || diff == 3 || diff == 4)
-				cubeLeft();
-			else
-				return false;
-		}
-		for(int i=0; i<4; i++)
-		{
-			diff = rCube[25] - rCube[46];
-			if(diff == -3 || diff == -4 || diff == -2 || diff == -1)
-				cubeLeft();
-			else
-				return false;
-		}
-	}
-	else
-		return false;
-}
+
+
     void color(int c)
     {
 
@@ -138,7 +99,7 @@ public:
         cout << "\n";
     }
 
-    void turnUpCw()
+    void turnUp()
     {
         int temp = rCube[1];
         rCube[1] = rCube[3];
@@ -161,20 +122,20 @@ public:
         }
         cout<<"U ";
     }
-    void turnUpAcw()
+    void turnCUp()
     {
-        turnUpCw();
-        turnUpCw();
-        turnUpCw();
+        turnUp();
+        turnUp();
+        turnUp();
         cout<<"U' ";
     }
     void turnUp2()
     {
-        turnUpCw();
-        turnUpCw();
+        turnUp();
+        turnUp();
     }
 
-    void turnDownCw()
+    void turnDown()
     {
         int temp = rCube[46];
         rCube[46] = rCube[48];
@@ -197,20 +158,20 @@ public:
         }
         cout<<"D ";
     }
-    void turnDownAcw()
+    void turnCDown()
     {
-        turnDownAcw();
-        turnDownAcw();
-        turnDownAcw();
+        turnDown();
+        turnDown();
+        turnDown();
         cout<<"D' ";
     }
     void turnDown2()
     {
-        turnDownCw();
-        turnDownCw();
+        turnDown();
+        turnDown();
     }
 
-    void turnLeftCw()
+    void turnLeft()
     {
         int temp =  rCube[10];
         rCube[10] = rCube[12];
@@ -233,20 +194,20 @@ public:
         }
         cout<<"L ";
     }
-    void turnLeftAcw()
+    void turnCLeft()
     {
-        turnLeftCw();
-        turnLeftCw();
-        turnLeftCw();
+        turnLeft();
+        turnLeft();
+        turnLeft();
         cout<<"L' ";
 
     }
     void turnLeft2()
     {
-        turnLeftCw();
-        turnLeftCw();
+        turnLeft();
+        turnLeft();
     }
-    void turnRightCw()
+    void turnRight()
     {
         int temp = rCube[28];
         rCube[28] = rCube[30];
@@ -269,21 +230,21 @@ public:
         }
         cout<<"R ";
     }
-    void turnRightAcw()
+    void turnCRight()
     {
-        turnRightCw();
-        turnRightCw();
-        turnRightCw();
+        turnRight();
+        turnRight();
+        turnRight();
         cout<<"R' ";
     }
     void turnRight2()
     {
-        turnRightCw();
-        turnRightCw();
+        turnRight();
+        turnRight();
 
     }
 
-    void turnFrontCw()
+    void turnFront()
     {
         int temp = rCube[19];
         rCube[19] = rCube[21];
@@ -306,20 +267,20 @@ public:
         }
         cout<<"F ";
     }
-    void turnFrontAcw()
+    void turnCFront()
     {
-        turnFrontCw();
-        turnFrontCw();
-        turnFrontCw();
+        turnFront();
+        turnFront();
+        turnFront();
         cout<<"F' ";
     }
     void turnFront2()
     {
-        turnFrontCw();
-        turnFrontCw();
+        turnFront();
+        turnFront();
     }
 
-    void turnBackCw()
+    void turnBack()
     {
         int temp = rCube[37];
         rCube[37] = rCube[39];
@@ -343,19 +304,19 @@ public:
         cout<<"B ";
     }
 
-    void turnBackAcw()
+    void turnCBack()
     {
-        turnBackCw();
-        turnBackCw();
-        turnBackCw();
+        turnBack();
+        turnBack();
+        turnBack();
         cout<<"B' ";
     }
     void turnBack2()
     {
-        turnBackCw();
-        turnBackCw();
+        turnBack();
+        turnBack();
     }
-    void cubeLeft()
+    void turnCubeToLeft()
 {
 	//Turn up
 	int temp = rCube[1];
@@ -417,7 +378,7 @@ public:
 	}
 }
 
-void cubeRight()
+void turnCubeToRight()
 {
 	//Turn up'
 	int temp = rCube[1];
@@ -479,7 +440,7 @@ void cubeRight()
 	}
 }
 
-void cubeUp()
+void turnCubeToUp()
 {
 	//Turn right
 	int temp = rCube[28];
@@ -541,7 +502,7 @@ void cubeUp()
 	}
 }
 
-void cubeDown()
+void turnCubeToDown()
 {
 	//Turn left
 	int temp = rCube[10];
@@ -603,568 +564,1822 @@ void cubeDown()
 	}
 }
 
-//void RCube::turnCubeSideToLeft()
-//{
-//	//Turn front'
-//	int temp = rCube[19];
-//	rCube[19] = rCube[21];
-//	rCube[21] = rCube[25];
-//	rCube[25] = rCube[23];
-//	rCube[23] = temp;
-//	temp = rCube[18];
-//	rCube[18] = rCube[24];
-//	rCube[24] = rCube[26];
-//	rCube[26] = rCube[20];
-//	rCube[20] = temp;
-//
-//	temp = rCube[19];
-//	rCube[19] = rCube[21];
-//	rCube[21] = rCube[25];
-//	rCube[25] = rCube[23];
-//	rCube[23] = temp;
-//	temp = rCube[18];
-//	rCube[18] = rCube[24];
-//	rCube[24] = rCube[26];
-//	rCube[26] = rCube[20];
-//	rCube[20] = temp;
-//
-//	temp = rCube[19];
-//	rCube[19] = rCube[21];
-//	rCube[21] = rCube[25];
-//	rCube[25] = rCube[23];
-//	rCube[23] = temp;
-//	temp = rCube[18];
-//	rCube[18] = rCube[24];
-//	rCube[24] = rCube[26];
-//	rCube[26] = rCube[20];
-//	rCube[20] = temp;
-//
-//	//Turn back
-//	temp = rCube[37];
-//	rCube[37] = rCube[39];
-//	rCube[39] = rCube[43];
-//	rCube[43] = rCube[41];
-//	rCube[41] = temp;
-//	temp = rCube[36];
-//	rCube[36] = rCube[42];
-//	rCube[42] = rCube[44];
-//	rCube[44] = rCube[38];
-//	rCube[38] = temp;
-//
-//	//Turn the rest to side left
-//	for(int j=0; j<3; j++)
-//	{
-//		for(int i=0; i<3; i++)
-//		{
-//			temp = rCube[0+i+(j*3)];
-//			rCube[0+i+(j*3)] = rCube[29+(i*3)-j];
-//			rCube[29+(i*3)-j] = rCube[53-i-(j*3)];
-//			rCube[53-i-(j*3)] = rCube[15-(i*3)+j];
-//			rCube[15-(i*3)+j] = temp;
-//		}
-//	}
-//}
-//
-//void RCube::turnCubeSideToRight()
-//{
-//	//Turn front
-//	int temp = rCube[19];
-//	rCube[19] = rCube[21];
-//	rCube[21] = rCube[25];
-//	rCube[25] = rCube[23];
-//	rCube[23] = temp;
-//	temp = rCube[18];
-//	rCube[18] = rCube[24];
-//	rCube[24] = rCube[26];
-//	rCube[26] = rCube[20];
-//	rCube[20] = temp;
-//
-//	//Turn back'
-//	temp = rCube[37];
-//	rCube[37] = rCube[39];
-//	rCube[39] = rCube[43];
-//	rCube[43] = rCube[41];
-//	rCube[41] = temp;
-//	temp = rCube[36];
-//	rCube[36] = rCube[42];
-//	rCube[42] = rCube[44];
-//	rCube[44] = rCube[38];
-//	rCube[38] = temp;
-//
-//	temp = rCube[37];
-//	rCube[37] = rCube[39];
-//	rCube[39] = rCube[43];
-//	rCube[43] = rCube[41];
-//	rCube[41] = temp;
-//	temp = rCube[36];
-//	rCube[36] = rCube[42];
-//	rCube[42] = rCube[44];
-//	rCube[44] = rCube[38];
-//	rCube[38] = temp;
-//
-//	temp = rCube[37];
-//	rCube[37] = rCube[39];
-//	rCube[39] = rCube[43];
-//	rCube[43] = rCube[41];
-//	rCube[41] = temp;
-//	temp = rCube[36];
-//	rCube[36] = rCube[42];
-//	rCube[42] = rCube[44];
-//	rCube[44] = rCube[38];
-//	rCube[38] = temp;
-//
-//	for(int j=0; j<3; j++)
-//	{
-//		for(int i=0; i<3; i++)
-//		{
-//			temp = rCube[6+i-(j*3)];
-//			rCube[6+i-(j*3)] = rCube[17-(i*3)-j];
-//			rCube[17-(i*3)-j] = rCube[47-i+(j*3)];
-//			rCube[47-i+(j*3)] = rCube[27+(i*3)+j];
-//			rCube[27+(i*3)+j] = temp;
-//		}
-//	}
-//}
-    void turnMiddleCw()
+void turnCubeSideToLeft()
+{
+	//Turn front'
+	int temp = rCube[19];
+	rCube[19] = rCube[21];
+	rCube[21] = rCube[25];
+	rCube[25] = rCube[23];
+	rCube[23] = temp;
+	temp = rCube[18];
+	rCube[18] = rCube[24];
+	rCube[24] = rCube[26];
+	rCube[26] = rCube[20];
+	rCube[20] = temp;
+
+	temp = rCube[19];
+	rCube[19] = rCube[21];
+	rCube[21] = rCube[25];
+	rCube[25] = rCube[23];
+	rCube[23] = temp;
+	temp = rCube[18];
+	rCube[18] = rCube[24];
+	rCube[24] = rCube[26];
+	rCube[26] = rCube[20];
+	rCube[20] = temp;
+
+	temp = rCube[19];
+	rCube[19] = rCube[21];
+	rCube[21] = rCube[25];
+	rCube[25] = rCube[23];
+	rCube[23] = temp;
+	temp = rCube[18];
+	rCube[18] = rCube[24];
+	rCube[24] = rCube[26];
+	rCube[26] = rCube[20];
+	rCube[20] = temp;
+
+	//Turn back
+	temp = rCube[37];
+	rCube[37] = rCube[39];
+	rCube[39] = rCube[43];
+	rCube[43] = rCube[41];
+	rCube[41] = temp;
+	temp = rCube[36];
+	rCube[36] = rCube[42];
+	rCube[42] = rCube[44];
+	rCube[44] = rCube[38];
+	rCube[38] = temp;
+
+	//Turn the rest to side left
+	for(int j=0; j<3; j++)
+	{
+		for(int i=0; i<3; i++)
+		{
+			temp = rCube[0+i+(j*3)];
+			rCube[0+i+(j*3)] = rCube[29+(i*3)-j];
+			rCube[29+(i*3)-j] = rCube[53-i-(j*3)];
+			rCube[53-i-(j*3)] = rCube[15-(i*3)+j];
+			rCube[15-(i*3)+j] = temp;
+		}
+	}
+}
+
+void turnCubeSideToRight()
+{
+	//Turn front
+	int temp = rCube[19];
+	rCube[19] = rCube[21];
+	rCube[21] = rCube[25];
+	rCube[25] = rCube[23];
+	rCube[23] = temp;
+	temp = rCube[18];
+	rCube[18] = rCube[24];
+	rCube[24] = rCube[26];
+	rCube[26] = rCube[20];
+	rCube[20] = temp;
+
+	//Turn back'
+	temp = rCube[37];
+	rCube[37] = rCube[39];
+	rCube[39] = rCube[43];
+	rCube[43] = rCube[41];
+	rCube[41] = temp;
+	temp = rCube[36];
+	rCube[36] = rCube[42];
+	rCube[42] = rCube[44];
+	rCube[44] = rCube[38];
+	rCube[38] = temp;
+
+	temp = rCube[37];
+	rCube[37] = rCube[39];
+	rCube[39] = rCube[43];
+	rCube[43] = rCube[41];
+	rCube[41] = temp;
+	temp = rCube[36];
+	rCube[36] = rCube[42];
+	rCube[42] = rCube[44];
+	rCube[44] = rCube[38];
+	rCube[38] = temp;
+
+	temp = rCube[37];
+	rCube[37] = rCube[39];
+	rCube[39] = rCube[43];
+	rCube[43] = rCube[41];
+	rCube[41] = temp;
+	temp = rCube[36];
+	rCube[36] = rCube[42];
+	rCube[42] = rCube[44];
+	rCube[44] = rCube[38];
+	rCube[38] = temp;
+
+	for(int j=0; j<3; j++)
+	{
+		for(int i=0; i<3; i++)
+		{
+			temp = rCube[6+i-(j*3)];
+			rCube[6+i-(j*3)] = rCube[17-(i*3)-j];
+			rCube[17-(i*3)-j] = rCube[47-i+(j*3)];
+			rCube[47-i+(j*3)] = rCube[27+(i*3)+j];
+			rCube[27+(i*3)+j] = temp;
+		}
+	}
+}
+    void turnMiddle()
     {
-        cubeDown();
-        turnRightCw();
-        turnLeftAcw();
+        turnCubeToDown();
+        turnRight();
+        turnCLeft();
     }
-    void turnMiddleAcw()
+    void turnMiddle2(){
+        turnMiddle();
+        turnMiddle();
+    }
+    void turnCMiddle()
     {
-        turnMiddleCw();
-        turnMiddleCw();
-        turnMiddleCw();
+        turnMiddle();
+        turnMiddle();
+        turnMiddle();
     }
 
-    void turnEquatorCw()
+    void turnEquator()
     {
-        cubeRight();
-        turnUpCw();
-        turnDownAcw();
+        turnCubeToRight();
+        turnUp();
+        turnCDown();
     }
-    void turnEquatorAcw()
+    void turnCEquator()
     {
-        turnEquatorCw();
-        turnEquatorCw();
-        turnEquatorCw();
+        turnEquator();
+        turnEquator();
+        turnEquator();
     }
-    void turnStandingCw()
+    void turnStanding()
     {
-        cubeRight();
-        turnFrontAcw();
-        turnBackCw();
+        turnCubeToRight();
+        turnCFront();
+        turnBack();
     }
-    void turnStandingAcw()
+    void turnCStanding()
     {
-        turnStandingCw();
-        turnStandingCw();
-        turnStandingCw();
+        turnStanding();
+        turnStanding();
+        turnStanding();
     }
 
-    void alignCenter(int centre)
-    {
-        while(rCube[22]!=centre)
-        {
-            cubeUp();
+//    void alignCenter(int centre)
+//    {
+//        while(rCube[22]!=centre)
+//        {
+//            cubeUp();
+//
+//            if(rCube[22]==centre)break;
+//            cubeRight();
+//
+//        }
+//
+//    }
+    void displayTurn(vector<int> sequence)
+{
+	cout << "Size of sequence: " << sequence.size() << endl;
+	for(int i=0; i<sequence.size(); i++)
+	{
+		if(sequence[i] == 100)
+			cout << "\nSolved step 1\n\n";
+		else if(sequence[i] == 200)
+			cout << "\nSolved step 2\n\n";
+		else if(sequence[i] == 300)
+			cout << "\nSolved step 3\n\n";
+		else if(sequence[i] == 400)
+			cout << "\nSolved step 4\n\n";
+		else if(sequence[i] == 500)
+			cout << "\nSolved step 5\n\n";
+		else if(sequence[i] == 600)
+			cout << "\nSolved step 6\n\n";
+		else if(sequence[i] == 700)
+			cout << "\nSolved step 7\n";
+		else if(sequence[i] == 0)
+			cout << "U";
+		else if(sequence[i] == 1)
+			cout << "D";
+		else if(sequence[i] == 2)
+			cout << "L";
+		else if(sequence[i] == 3)
+			cout << "R";
+		else if(sequence[i] == 4)
+			cout << "F";
+		else if(sequence[i] == 5)
+			cout << "B";
+		else if(sequence[i] == 6)
+			cout << "M";
+		else if(sequence[i] == 7)
+			cout << "E";
+		else if(sequence[i] == 8)
+			cout << "S";
+		else if(sequence[i] == 9)
+			cout << "U'";
+		else if(sequence[i] == 10)
+			cout << "D'";
+		else if(sequence[i] == 11)
+			cout << "L'";
+		else if(sequence[i] == 12)
+			cout << "R'";
+		else if(sequence[i] == 13)
+			cout << "F'";
+		else if(sequence[i] == 14)
+			cout << "B'";
+		else if(sequence[i] == 15)
+			cout << "M'";
+		else if(sequence[i] == 16)
+			cout << "E'";
+		else if(sequence[i] == 17)
+			cout << "S'";
+		else if(sequence[i] == 18)
+			cout << "U2";
+		else if(sequence[i] == 19)
+			cout << "D2";
+		else if(sequence[i] == 20)
+			cout << "L2";
+		else if(sequence[i] == 21)
+			cout << "R2";
+		else if(sequence[i] == 22)
+			cout << "F2";
+		else if(sequence[i] == 23)
+			cout << "B2";
+		else if(sequence[i] == 24)
+			cout << "M2";
+		else if(sequence[i] == 25)
+			cout << "E2";
+		else if(sequence[i] == 26)
+			cout << "S2";
+		else if(sequence[i] == 27)
+			cout << "X";
+		else if(sequence[i] == 28)
+			cout << "X'";
+		else if(sequence[i] == 29)
+			cout << "Y";
+		else if(sequence[i] == 30)
+			cout << "Y'";
+		else if(sequence[i] == 31)
+			cout << "Z";
+		else if(sequence[i] == 32)
+			cout << "Z'";
+		else if(sequence[i] == 33)
+			cout << "X2";
+		else if(sequence[i] == 34)
+			cout << "Y2";
+		else if(sequence[i] == 35)
+			cout << "Z2";
+	}
+	cout << "\n";
+}
 
-            if(rCube[22]==centre)break;
-            cubeRight();
-
-        }
-
-    }
-    void solver()
+void reduce(vector<int>& sequence)
+{
+	if(sequence.size() > 1)
+	{
+		if(sequence.size() > 3)
+		{
+			for(int i=0; i<sequence.size()-3; i++)
+			{
+				if(sequence.size() > 3)
+				{
+					if((sequence[i] == sequence[i+1]) && (sequence[i] == sequence[i+2]) && (sequence[i] == sequence[i+3]) && sequence.size() > 3) //Remove 4 same move
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+					}
+				}
+				else
+					break;
+			}
+		}
+		if(sequence.size() > 2)
+		{
+			for(int i=0; i<sequence.size()-2; i++)
+			{
+				if(sequence.size() > 2)
+				{
+					if(sequence[i] == sequence[i+1] && sequence[i] == sequence[i+2])
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+						if(sequence[i] < 9)
+							sequence[i] = sequence[i] + 9;
+						else if(sequence[i] < 18)
+							sequence[i] = sequence[i] - 9;
+						else if(sequence[i] > 26)
+						{
+							if(sequence[i] == 27 || sequence[i] == 29 || sequence[i] == 31)
+								sequence[i] = sequence[i] + 1;
+							else if(sequence[i] == 28 || sequence[i] == 30 || sequence[i] == 32)
+								sequence[i] = sequence[i] - 1;
+						}
+					}
+				}
+			}
+		}
+		if(sequence.size() > 1)
+		{
+			for(int i=0; i<sequence.size()-1; i++)
+			{
+				if(sequence.size() > 1)
+				{
+					if((sequence[i]+9 == sequence[i+1]) && sequence[i] < 9) //To reduce clockwise with anti-clockwise
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+					}
+					if((sequence[i]-9 == sequence[i+1]) && sequence[i] < 18) //To reduce anti-clockwise with clockwise
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+					}
+					if((sequence[i]+1 == sequence[i+1]) && sequence[i] > 26 && sequence[i] < 33) //X X' Y Y' Z Z'
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence.erase(sequence.begin()+i);
+					}
+					if(sequence[i] == sequence[i+1] && sequence[i] < 9) //To merge 2 same move (Clockwise)
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence[i] = sequence[i] + 18;
+					}
+					if(sequence[i] == sequence[i+1] && sequence[i] > 8 && sequence[i] < 18) //To merge 2 same move (Counter Clockwise)
+					{
+						sequence.erase(sequence.begin()+i);
+						sequence[i] = sequence[i] + 9;
+					}
+					if(sequence[i] == sequence[i+1] && sequence[i] > 26 && sequence[i] < 33) //To merge 2 same move (X Y Z)
+					{
+						sequence.erase(sequence.begin()+i);
+						if(sequence[i] == 27 || sequence[i] == 28) //X / X'
+							sequence[i] = 33;
+						else if(sequence[i] == 29 || sequence[i] == 30) //Y / Y'
+							sequence[i] = 34;
+						else if(sequence[i] == 31 || sequence[i] == 32) //Z / Z'
+							sequence[i] = 35;
+					}
+				}
+				else
+					break;
+			}
+		}
+	}
+}
+    bool solver(vector<int>& sequence)
     {
         cout<<"Move Lists: ";
-        //     whiteCross();
-        //     cout<<"\n";
-        // }
-
-        // void whiteCross(){
-
-        //     alignCenter(1);
-        //     while(rCube[19]!=1 && rCube[21]!=1 && rCube[23]!=1 && rCube[25]!=1){
-
-        //     }
-        // }
         bool finish = false, step1 = false, step2 = false, step3 = false, step4 = false, step5 = false, step6 = false, step7 = false;
-        int diff, diff2, temp;
-        int currentSide[] = {2, 3, 4, 5};
-        int i = 1, counter;
+	int diff, diff2, temp;
+	int currentSide[] = {2, 3, 4, 5};
+	int i = 1, counter;
 
-        //Step 1: Solve white cross
-        while(!step1)
-        {
-            //Check is white cross and corresponding color match
-            if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
-            {
-                bool side1 = false, side2 = false, side3 = false, side4 = false;
-                for(int j=0; j<4; j++)
-                {
-                    if(rCube[16] == currentSide[j] && rCube[13] == currentSide[j])
-                    {
-                        side1 = true;
-                        break;
-                    }
-                    else
-                        side1 = false;
-                }
-                for(int j=0; j<4; j++)
-                {
-                    if(rCube[25] == currentSide[j] && rCube[22] == currentSide[j])
-                    {
-                        side2 = true;
-                        break;
-                    }
-                    else
-                        side2 = false;
-                }
-                for(int j=0; j<4; j++)
-                {
-                    if(rCube[34] == currentSide[j] && rCube[31] == currentSide[j])
-                    {
-                        side3 = true;
-                        break;
-                    }
-                    else
-                        side3 = false;
-                }
-                for(int j=0; j<4; j++)
-                {
-                    if(rCube[43] == currentSide[j] && rCube[40] == currentSide[j])
-                    {
-                        side4 = true;
-                        break;
-                    }
-                    else
-                        side4 = false;
-                }
-                if(side1 && side2 && side3 && side4)
-                    step1 = true;
-            }
-            if(!step1)
-            {
-                while(!finish)
-                {
-                    //Checking white cross
-                    if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
-                        finish = true;
-                    else
-                    {
-                        //Check top
-                        if(rCube[1] == 6) //First edge
-                        {
-                            diff = currentSide[i] - rCube[37];
-                            if(diff == 1 || diff == -3)
-                            {
-                                turnUpCw();
-                                turnLeft2();
+	//Step 1: Solve white cross
+	while(!step1)
+	{
+		//Check is white cross and corresponding color match
+		if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
+		{
+			bool side1 = false, side2 = false, side3 = false, side4 = false;
+			for(int j=0; j<4; j++)
+			{
+				if(rCube[16] == currentSide[j] && rCube[13] == currentSide[j])
+				{
+					side1 = true;
+					break;
+				}
+				else
+					side1 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(rCube[25] == currentSide[j] && rCube[22] == currentSide[j])
+				{
+					side2 = true;
+					break;
+				}
+				else
+					side2 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(rCube[34] == currentSide[j] && rCube[31] == currentSide[j])
+				{
+					side3 = true;
+					break;
+				}
+				else
+					side3 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(rCube[43] == currentSide[j] && rCube[40] == currentSide[j])
+				{
+					side4 = true;
+					break;
+				}
+				else
+					side4 = false;
+			}
+			if(side1 && side2 && side3 && side4)
+				step1 = true;
+		}
+		if(!step1)
+		{
+			while(!finish)
+			{
+				//Checking white cross
+				if(rCube[46] == 6 && rCube[48] == 6 && rCube[50] == 6 && rCube[52] == 6)
+						finish = true;
+				else
+				{
+					//Check top
+					if(rCube[1] == 6) //First edge
+					{
+						diff = currentSide[i] - rCube[37];
+						if(diff == 1 || diff == -3)
+						{
+							turnCUp();
+							turnLeft2();
+							sequence.push_back(9);
+							sequence.push_back(20);
+						}
+						else if(diff == 0)
+						{
+							turnUp2();
+							turnFront2();
+							sequence.push_back(18);
+							sequence.push_back(22);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnUp();
+							turnRight2();
+							sequence.push_back(0);
+							sequence.push_back(21);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnBack2();
+							sequence.push_back(23);
+						}
+					}
+					else if(rCube[3] == 6) //Second edge
+					{
+						diff = currentSide[i] - rCube[10];
+						if(diff == 1 || diff == -3)
+						{
+							turnLeft2();
+							sequence.push_back(20);
+						}
+						else if(diff == 0)
+						{
+							turnCUp();
+							turnFront2();
+							sequence.push_back(9);
+							sequence.push_back(22);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnUp2();
+							turnRight2();
+							sequence.push_back(18);
+							sequence.push_back(21);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnUp();
+							turnBack2();
+							sequence.push_back(0);
+							sequence.push_back(23);
+						}
+					}
+					else if(rCube[5] == 6) //Third edge
+					{
+						diff = currentSide[i] - rCube[28];
+						if(diff == 1 || diff == -3)
+						{
+							turnUp2();
+							turnLeft2();
+							sequence.push_back(18);
+							sequence.push_back(20);
+						}
+						else if(diff == 0)
+						{
+							turnUp();
+							turnFront2();
+							sequence.push_back(0);
+							sequence.push_back(22);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnRight2();
+							sequence.push_back(21);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnCUp();
+							turnBack2();
+							sequence.push_back(9);
+							sequence.push_back(23);
+						}
+					}
+					else if(rCube[7] == 6) //Fourth edge
+					{
+						diff = currentSide[i] - rCube[19];
+						if(diff == 1 || diff == -3)
+						{
+							turnUp();
+							turnLeft2();
+							sequence.push_back(0);
+							sequence.push_back(20);
+						}
+						else if(diff == 0)
+						{
+							turnFront2();
+							sequence.push_back(22);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnCUp();
+							turnRight2();
+							sequence.push_back(9);
+							sequence.push_back(21);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnUp2();
+							turnBack2();
+							sequence.push_back(18);
+							sequence.push_back(23);
+						}
+					}
+					else if(rCube[19] == 6) //Check side first edge
+					{
+						diff = currentSide[i] - rCube[7];
+						if(diff == 0)
+						{
+							turnUp();
+							turnLeft();
+							turnCFront();
+							turnCLeft();
+							turnCUp();
+							int array[] = {0,2,13,11,9};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnFront();
+							turnCRight();
+							turnCFront();
+							int array[] = {4,12,13};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if(diff == 1 || diff == -3)
+						{
+							turnCFront();
+							turnLeft();
+							turnFront();
+							int array[] = {13,2,4};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnUp();
+							turnCLeft();
+							turnBack();
+							turnLeft();
+							turnCUp();
+							int array[] = {0,11,5,2,9};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+					}
+					else if(rCube[21] == 6) //Second edge
+					{
+						diff = currentSide[i] - rCube[14];
+						if(diff == 0)
+						{
+							turnCLeft();
+							turnCUp();
+							turnFront2();
+							turnUp();
+							turnLeft();
+							int array[] = {11,9,22,0,2};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == 1 || diff == -3)
+						{
+							turnLeft();
+							sequence.push_back(2);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnCLeft();
+							turnUp2();
+							turnRight2();
+							turnUp2();
+							turnLeft();
+							int array[] = {11,18,21,18,2};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnCLeft();
+							turnUp();
+							turnBack2();
+							turnCUp();
+							turnLeft();
+							int array[] = {11,0,23,9,2};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+					}
+					else if(rCube[23] == 6) //Third edge
+					{
+						diff = currentSide[i] - rCube[30];
+						if(diff == 0)
+						{
+							turnRight();
+							turnUp();
+							turnFront2();
+							turnCUp();
+							turnCRight();
+							int array[] = {3,0,22,9,12};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == 1 || diff == -3)
+						{
+							turnRight();
+							turnUp2();
+							turnLeft2();
+							turnUp2();
+							turnCRight();
+							int array[] = {3,18,20,18,12};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnCRight();
+							sequence.push_back(12);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnRight();
+							turnCUp();
+							turnBack2();
+							turnUp();
+							turnCRight();
+							int array[] = {3,9,23,0,12};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+					}
+					else if(rCube[25] == 6) //Fourth edge
+					{
+						diff = currentSide[i] - rCube[46];
+						if(diff == 0)
+						{
+							turnCFront();
+							turnRight();
+							turnUp();
+							turnFront2();
+							turnCRight();
+							int array[] = {13,3,0,22,12};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+						else if(diff == 1 || diff == -3)
+						{
+							turnFront();
+							turnLeft();
+							turnCFront();
+							int array[] = {4,2,13};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if(diff == -1 || diff == 3)
+						{
+							turnCFront();
+							turnCRight();
+							turnFront();
+							int array[] = {13,12,4};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if(diff == -2 || diff == 2)
+						{
+							turnCFront();
+							turnRight();
+							turnCUp();
+							turnBack2();
+							turnCRight();
+							int array[] = {13,3,9,23,12};
+							sequence.insert(sequence.end(), array, array+5);
+						}
+					}
+					turnCubeToLeft();
+					sequence.push_back(29);
+					i++;
+					if(i == 4)
+						i = 0;
+				}
+			}
+			if(finish)
+			{
+				//Check bottom
+				if(rCube[25] != rCube[22])
+				{
+					diff = rCube[22] - rCube[25];
+					if(diff == 1 || diff == -3)
+					{
+						turnCMiddle();
+						turnStanding();
+						turnUp();
+						turnCStanding();
+						turnUp2();
+						turnMiddle();
+						int array[] = {15,8,0,17,18,6};
+						sequence.insert(sequence.end(), array, array+6);
+					}
+					else if(diff == -1 || diff == 3)
+					{
+						turnCMiddle();
+						turnCStanding();
+						turnCUp();
+						turnStanding();
+						turnUp2();
+						turnMiddle();
+						int array[] = {15,17,9,8,18,6};
+						sequence.insert(sequence.end(), array, array+6);
+					}
+					else if(diff == 2 || diff == -2)
+					{
+						turnCMiddle();
+						turnUp();
+						turnMiddle2();
+						turnUp();
+						turnMiddle2();
+						turnUp();
+						turnMiddle();
+						int array[] = {15,0,24,0,24,0,6};
+						sequence.insert(sequence.end(), array, array+7);
+					}
+				}
+				turnCubeToLeft();
+				sequence.push_back(29);
+			}
+		}
+	}
+	finish = false;
+	sequence.push_back(100);
 
-                            }
-                            else if(diff == 0)
-                            {
-                                turnUp2();
-                                turnFront2();
+	//Step 2: Solve white corners
+	//To make white side on top
+	turnCubeSideToLeft();
+	turnCubeSideToLeft();
+	sequence.push_back(32);
+	sequence.push_back(32);
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnUpCw();
-                                turnRight2();
+	while(!step2)
+	{
+		if(rCube[0] == 6 && rCube[2] == 6 && rCube[6] == 6 && rCube[8] == 6)
+		{
+			bool corner1 = false, corner2 = false, corner3 = false, corner4 = false;
+			for(int j = 0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if((rCube[38] == currentSide[temp]) && (rCube[9] == currentSide[j]) && (rCube[10] == currentSide[j]))
+				{
+					corner1 = true;
+					break;
+				}
+				else
+					corner1 = false;
+			}
+			for(int j = 0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if((rCube[29] == currentSide[temp]) && (rCube[36] == currentSide[j]) && (rCube[37] == currentSide[j]))
+				{
+					corner2 = true;
+					break;
+				}
+				else
+					corner2 = false;
+			}
+			for(int j = 0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if((rCube[11] == currentSide[temp]) && (rCube[18] == currentSide[j]) && (rCube[19] == currentSide[j]))
+				{
+					corner3 = true;
+					break;
+				}
+				else
+					corner3 = false;
+			}
+			for(int j = 0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if((rCube[20] == currentSide[temp]) && (rCube[27] == currentSide[j]) && (rCube[28] == currentSide[j]))
+				{
+					corner4 = true;
+					break;
+				}
+				else
+					corner4 = false;
+			}
+			if(corner1 && corner2 && corner3 && corner4)
+				step2 = true;
+		}
+		if(!step2)
+		{
+			while(!finish)
+			{
+				if(rCube[0] == 6 && rCube[2] == 6 && rCube[6] == 6 && rCube[8] == 6)
+					finish = true;
+				else
+				{
+					//Make orange side the front
+					if(rCube[45] == 6) //Top first corner
+					{
+						diff = currentSide[i] - rCube[24];
+						diff2 = currentSide[i] - rCube[17];
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnBack2();
+						if(diff == 0 && diff2 == 1)
+						{
+							turnDown();
+							turnCRight();
+							turnDown2();
+							turnRight();
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {1,12,19,3,1,12,10,3};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == 1 && diff2 == 2) || (diff == 1 && diff2 == -2))
+						{
+							turnDown2();
+							turnCBack();
+							turnDown2();
+							turnBack();
+							turnDown();
+							turnCBack();
+							turnCDown();
+							turnBack();
+							int array[] = {19,14,19,5,1,14,10,5};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == 2 && diff2 == -1) || (diff == -2 && diff2 == -1) || (diff == 2 && diff2 == 3))
+						{
+							turnCDown();
+							turnCLeft();
+							turnDown2();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							int array[] = {10,11,19,2,1,11,10,2};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if(diff == -1 && diff2 == 0)
+						{
+							turnCFront();
+							turnDown2();
+							turnFront();
+							turnDown();
+							turnCFront();
+							turnCDown();
+							turnFront();
+							int array[] = {13,19,4,1,13,10,4};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+					}
+					else if(rCube[47] == 6) //Top second corner
+					{
+						diff = currentSide[i] - rCube[26];
+						diff2 = currentSide[i] - rCube[33];
 
-                            }
-                        }
-                        else if(rCube[3] == 6) //Second edge
-                        {
-                            diff = currentSide[i] - rCube[10];
-                            if(diff == 1 || diff == -3)
-                            {
-                                turnLeft2();
+						if(diff == 1 && diff2 == 0)
+						{
+							turnCRight();
+							turnDown2();
+							turnRight();
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {12,19,3,1,12,10,3};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == -2 && diff2 == 1) || (diff == 2 && diff2 == 1))
+						{
+							turnDown();
+							turnCBack();
+							turnDown2();
+							turnBack();
+							turnDown();
+							turnCBack();
+							turnCDown();
+							turnBack();
+							int array[] = {1,14,19,5,1,14,10,5};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == -1 && diff2 == -2) || (diff == -1 && diff2 == 2))
+						{
+							turnDown2();
+							turnCLeft();
+							turnDown2();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							int array[] = {19,11,19,2,1,11,10,2};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if(diff == 0 && diff2 == -1)
+						{
+							turnCDown();
+							turnLeft();
+							turnDown2();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							int array[] = {10,2,19,11,10,2,1,11};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+					}
+					else if(rCube[51] == 6) //Top third corner
+					{
+						diff = currentSide[i] - rCube[44];
+						diff2 = currentSide[i] - rCube[15];
 
-                            }
-                            else if(diff == 0)
-                            {
-                                turnUpAcw();
-                                turnFront2();
+						if((diff == 1 && diff2 == 0) || (diff == -1 && diff2 == 0))
+						{
+							turnDown2();
+							turnCRight();
+							turnDown2();
+							turnRight();
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {19,12,19,3,1,12,10,3};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == -2 && diff2 == 1) || (diff == -2 && diff2 == -3) || (diff == 2 && diff2 == 1))
+						{
+							turnCDown();
+							turnRight();
+							turnCDown();
+							turnCRight();
+							turnDown2();
+							turnRight();
+							turnDown();
+							turnCRight();
+							int array[] = {10,3,10,12,19,3,1,12};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == -2 && diff2 == -2) || (diff == -1 && diff2 == -2) || (diff == 3 && diff2 == 2) || (diff == -1 && diff2 == 2))
+						{
+							turnCLeft();
+							turnDown2();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							int array[] = {11,19,2,1,11,10,2};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == 0 && diff2 == -1) || (diff == 0 && diff2 == 3))
+						{
+							turnDown();
+							turnLeft();
+							turnDown2();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							int array[] = {1,2,19,11,10,2,1,11};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+					}
+					else if(rCube[53] == 6) //Top fourth corner
+					{
+						diff = currentSide[i] - rCube[42];
+						diff2 = currentSide[i] - rCube[35];
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnUp2();
-                                turnRight2();
+						if((diff == 0 && diff2 == 1) || (diff == 0 && diff2 == -3))
+						{
+							turnCDown();
+							turnCRight();
+							turnDown2();
+							turnRight();
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {10,12,19,3,1,12,10,3};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == 1 && diff2 == -2) || (diff == -3 && diff2 == -2) || (diff == 1 && diff2 == 2))
+						{
+							turnRight();
+							turnDown2();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							turnDown();
+							turnCRight();
+							int array[] = {3,19,12,10,3,1,12};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == -2 && diff2 == -1) || (diff == 2 && diff2 == 3) || (diff == 2 && diff2 == -1))
+						{
+							turnDown();
+							turnBack();
+							turnDown2();
+							turnCBack();
+							turnCDown();
+							turnBack();
+							turnDown();
+							turnCBack();
+							int array[] = {1,5,19,14,10,5,1,14};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+						else if((diff == -1 && diff2 == 0) || (diff == 3 && diff2 == 0))
+						{
+							turnDown2();
+							turnLeft();
+							turnDown2();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							int array[] = {19,2,19,11,10,2,1,11};
+							sequence.insert(sequence.end(), array, array+8);
+						}
+					}
+					else if(rCube[18] == 6) //Side first corner
+					{
+						diff = currentSide[i] - rCube[6];
+						diff2 = currentSide[i] - rCube[11];
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnUpCw();
-                                turnBack2();
+						if((diff == -1 && diff2 == 0) || (diff == 3 && diff2 == 0))
+						{
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							turnDown();
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							int array[] = {2,10,11,1,2,10,11};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == 0 && diff2 == 1) || (diff == 0 & diff2 == -3))
+						{
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {2,10,11,1,12,10,3};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == 1 && diff2 == -2) || (diff == 1 && diff2 == 2) || (diff == -3 && diff2 == -2))
+						{
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							turnDown2();
+							turnCBack();
+							turnCDown();
+							turnBack();
+							int array[] = {2,10,11,19,14,10,5};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == -2 && diff2 == -1) || (diff == 2 && diff2 == 3) || (diff == 2 && diff2 == -1))
+						{
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							turnBack();
+							turnCDown();
+							turnCBack();
+							int array[] = {2,10,11,5,10,14};
+							sequence.insert(sequence.end(), array, array+6);
+						}
+					}
+					else if(rCube[20] == 6) //Side second corner
+					{
+						diff = currentSide[i] - rCube[8];
+						diff2 = currentSide[i] - rCube[27];
 
-                            }
-                        }
-                        else if(rCube[5] == 6) //Third edge
-                        {
-                            diff = currentSide[i] - rCube[28];
-                            if(diff == 1 || diff == -3)
-                            {
-                                turnUp2();
-                                turnLeft2();
+						if((diff == 1 && diff2 == 0) || (diff == -1 && diff2 == 0) || (diff == -3 && diff2 == 0))
+						{
+							turnCRight();
+							turnDown();
+							turnRight();
+							turnCDown();
+							turnCRight();
+							turnDown();
+							turnRight();
+							int array[] = {12,1,3,10,12,1,3};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+						else if((diff == -2 && diff2 == 1) || (diff == 2 && diff2 == 1) || (diff == -2 && diff2 == -3))
+						{
+							turnCRight();
+							turnDown();
+							turnRight();
+							turnCBack();
+							turnDown();
+							turnBack();
+							int array[] = {12,1,3,14,1,5};
+							sequence.insert(sequence.end(), array, array+6);
+						}
+						else if((diff == -1 && diff2 == -2) || (diff == 3 && diff2 == 2) || (diff == -1 & diff2 == 2))
+						{
+							turnCRight();
+							turnDown();
+							turnRight();
+							turnCLeft();
+							turnDown2();
+							turnLeft();
+							int array[] = {12,1,3,11,19,2};
+							sequence.insert(sequence.end(), array, array+6);
+						}
+						else if((diff == 0 && diff2 == -1) || (diff == 0 && diff2 == 3) || (diff == 0 && diff2 == 1))
+						{
+							turnCRight();
+							turnDown();
+							turnRight();
+							turnCDown();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							int array[] = {12,1,3,10,2,1,11};
+							sequence.insert(sequence.end(), array, array+7);
+						}
+					}
+					else if(rCube[24] == 6) //Side third corner
+					{
+						diff = currentSide[i] - rCube[45];
+						diff2 = currentSide[i] - rCube[17];
 
-                            }
-                            else if(diff == 0)
-                            {
-                                turnUpCw();
-                                turnFront2();
+						if((diff == 1 && diff2 == 0) || (diff == -3 && diff2 == 0))
+						{
+							turnDown();
+							turnCRight();
+							turnCDown();
+							turnRight();
+							int array[] = {1,12,10,3};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+						else if((diff == -2 && diff2 == 1) || (diff == 2 && diff2 == 1) || (diff == -2 && diff2 == -3))
+						{
+							turnDown2();
+							turnCBack();
+							turnCDown();
+							turnBack();
+							int array[] = {19,14,10,5};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+						else if((diff == -1 && diff2 == -2) || (diff == 3 && diff2 == 2) || (diff == -1 && diff2 == 2))
+						{
+							turnCDown();
+							turnCLeft();
+							turnCDown();
+							turnLeft();
+							int array[] = {10,11,10,2};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+						else if((diff == 0 && diff2 == -1) || (diff == 0 && diff2 == 3))
+						{
+							turnDown();
+							turnLeft();
+							turnCDown();
+							turnCLeft();
+							int array[] = {1,2,10,11};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+					}
+					else if(rCube[26] == 6) //Side fourth corner
+					{
+						diff = currentSide[i] - rCube[47];
+						diff2 = currentSide[i] - rCube[33];
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnRight2();
+						if((diff == 0 && diff2 == 1) || (diff == 0 && diff2 == -3))
+						{
+							turnCDown();
+							turnCRight();
+							turnDown();
+							turnRight();
+							int array[] = {10,12,1,3};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+						else if((diff == 1 && diff2 == -2) || (diff == 1 && diff2 == 2) || (diff == -3 && diff2 == -2))
+						{
+							turnCBack();
+							turnDown();
+							turnBack();
+							int array[] = {14,1,5};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if((diff == -2 && diff2 == -1) || (diff == 2 && diff2 == 3) || (diff == 2 && diff2 == -1))
+						{
+							turnCLeft();
+							turnDown2();
+							turnLeft();
+							int array[] = {11,19,2};
+							sequence.insert(sequence.end(), array, array+3);
+						}
+						else if((diff == -1 && diff2 == 0) || (diff == 3 && diff2 == 0))
+						{
+							turnCDown();
+							turnLeft();
+							turnDown();
+							turnCLeft();
+							int array[] = {10, 2, 1, 11};
+							sequence.insert(sequence.end(), array, array+4);
+						}
+					}
+					turnCubeToLeft();
+					sequence.push_back(29);
+					i--;
+					if(i == -1)
+						i = 3;
+				}
+			}
+			if(finish)
+			{
+				//Orient the corners
+				finish = false;
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnUpAcw();
-                                turnBack2();
+				if(i+1 == 4)
+					temp = 0;
+				else
+					temp = i+1;
 
-                            }
-                        }
-                        else if(rCube[7] == 6) //Fourth edge
-                        {
-                            diff = currentSide[i] - rCube[19];
-                            if(diff == 1 || diff == -3)
-                            {
-                                turnUpCw();
-                                turnLeft2();
+				if(rCube[18] != rCube[22] && rCube[11] != rCube[13])
+				{
+					diff = rCube[22] - rCube[18];
+					diff2 = rCube[22] - rCube[11];
 
-                            }
-                            else if(diff == 0)
-                            {
-                                turnFront2();
+					if((diff == 1 && diff2 == 0) || (diff == -3 && diff2 == 0))
+					{
+						turnLeft();
+						turnDown();
+						turnCLeft();
+						turnCRight();
+						turnCDown();
+						turnRight();
+						turnLeft();
+						turnDown();
+						turnCLeft();
+						int array[] = {2,1,11,12,10,3,2,1,11};
+						sequence.insert(sequence.end(), array, array+9);
+					}
+					else if((diff == -2 && diff2 == 1) || (diff == -2 && diff2 == -3) || (diff == 2 && diff2 == 1) || (diff == 2 && diff2 == -3))
+					{
+						turnLeft();
+						turnRight();
+						turnDown2();
+						turnCLeft();
+						turnCRight();
+						int array[] = {2,3,19,11,12};
+						sequence.insert(sequence.end(), array, array+5);
+					}
+					else if((diff == -1 && diff2 == -2) || (diff == 3 && diff2 == 2) || (diff == -1 && diff2 == 2))
+					{
+						turnLeft();
+						turnDown2();
+						turnCLeft();
+						turnDown();
+						turnCLeft();
+						turnCDown();
+						turnLeft();
+						turnDown2();
+						turnLeft();
+						turnDown();
+						turnCLeft();
+						int array[] = {2,19,11,1,11,10,2,19,2,1,11};
+						sequence.insert(sequence.end(), array, array+11);
+					}
+				}
+				turnCubeToLeft();
+				sequence.push_back(29);
+				i--;
+				if(i == -1)
+					i = 3;
+			}
+		}
+	}
+	finish = false;
+	sequence.push_back(200);
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnUpAcw();
-                                turnRight2();
+	//Step 3: Solve second layers
+	counter = 1;
+	while(!step3)
+	{
+		if((rCube[12] == rCube[13] && rCube[14] == rCube[13]) && (rCube[21] == rCube[22] && rCube[23] == rCube[22]) && (rCube[30] == rCube[31] && rCube[32] == rCube[31]) && (rCube[39] == rCube[40] && rCube[41] == rCube[40]))
+			step3 = true;
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnUp2();
-                                turnBack2();
+		if(!step3)
+		{
+			if((rCube[25] != 1) && (rCube[46] != 1)) //Must not be yellow
+			{
+				counter = 1;
+				while(rCube[25] != rCube[22])
+				{
+					turnCubeToLeft();
+					turnDown();
+					sequence.push_back(29);
+					sequence.push_back(1);
+				}
+				if((rCube[46] != rCube[13]) && (rCube[46] == rCube[31])) //Right side
+				{
+					turnCDown();
+					turnCRight();
+					turnDown();
+					turnRight();
+					turnDown();
+					turnFront();
+					turnCDown();
+					turnCFront();
+					int array[] = {10,12,1,3,1,4,10,13};
+					sequence.insert(sequence.end(), array, array+8);
+				}
+				else if((rCube[46] == rCube[13]) && (rCube[46] != rCube[31])) //Left side
+				{
+					turnDown();
+					turnLeft();
+					turnCDown();
+					turnCLeft();
+					turnCDown();
+					turnCFront();
+					turnDown();
+					turnFront();
+					int array[] = {1,2,10,11,10,13,1,4};
+					sequence.insert(sequence.end(), array, array+8);
+				}
+			}
+			else
+			{
+				turnCubeToLeft();
+				sequence.push_back(29);
+				counter++;
+				if(counter == 5)
+				{
+					turnCDown();
+					turnCRight();
+					turnDown();
+					turnRight();
+					turnDown();
+					turnFront();
+					turnCDown();
+					turnCFront();
+					int array[] = {10,12,1,3,1,4,10,13};
+					sequence.insert(sequence.end(), array, array+8);
+					counter = 1;
+				}
+			}
+		}
+	}
+	sequence.push_back(300);
 
-                            }
-                        }
-                        else if(rCube[19] == 6) //Check side first edge
-                        {
-                            diff = currentSide[i] - rCube[7];
-                            if(diff == 0)
-                            {
-                                turnUpCw();
-                                turnLeftCw();
-                                turnFrontAcw();
-                                turnLeftAcw();
-                                turnUpAcw();
+	//Step 4: Solve yellow cross
+	//Make yellow side on top
+	turnCubeSideToLeft();
+	turnCubeSideToLeft();
+	sequence.push_back(32);
+	sequence.push_back(32);
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnFrontCw();
-                                turnRightAcw();
-                                turnFrontAcw();
+	while(!step4)
+	{
+		if(rCube[1] == 1 && rCube[3] == 1 && rCube[5] == 1 && rCube[7] == 1) //Yellow cross
+			step4 = true;
+		else
+		{
+			//Yellow Line, yellow L, yellow dot
+			if((rCube[3] == 1 && rCube[5] == 1) || (rCube[1] == 1 && rCube[3] == 1) || (rCube[1] != 1 && rCube[3] != 1 && rCube[5] != 1 && rCube[7] != 1))
+			{
+				turnFront();
+				turnRight();
+				turnUp();
+				turnCRight();
+				turnCUp();
+				turnCFront();
+				int array[] = {4,3,0,12,9,13};
+				sequence.insert(sequence.end(), array, array+6);
+			}
+			else //Yellow line or L is facing wrong direction
+			{
+				turnCubeToLeft();
+				sequence.push_back(29);
+			}
+		}
+	}
+	sequence.push_back(400);
 
-                            }
-                            else if(diff == 1 || diff == -3)
-                            {
-                                turnFrontAcw();
-                                turnLeftCw();
-                                turnFrontCw();
+	//Step 5: Fix yellow edges
+	counter = 1;
+	while(!step5)
+	{
+		if(rCube[10] == rCube[13] && rCube[19] == rCube[22] && rCube[28] == rCube[31] && rCube[37] == rCube[40])
+			step5 = true;
+		else
+		{
+			if(counter == 3)
+			{
+				turnUp2();
+				sequence.push_back(18);
+				counter = 0;
+			}
+			if((rCube[19] != rCube[22]) && (rCube[10] != rCube[13]))
+			{
+				turnRight();
+				turnUp();
+				turnCRight();
+				turnUp();
+				turnRight();
+				turnUp2();
+				turnCRight();
+				turnUp();
+				int array[] = {3,0,12,0,3,18,12,0};
+				sequence.insert(sequence.end(), array, array+8);
+				counter++;
+			}
+			else if((rCube[10] == rCube[13]) && (rCube[19] != rCube[22]) && (rCube[28] == rCube[31]) && (rCube[37] != rCube[40]))
+			{
+				turnRight();
+				turnUp();
+				turnCRight();
+				turnUp();
+				turnRight();
+				turnUp2();
+				turnCRight();
+				turnUp();
+				turnUp2();
+				turnRight();
+				turnUp();
+				turnCRight();
+				turnUp();
+				turnRight();
+				turnUp2();
+				turnCRight();
+				int array[] = {3,0,12,0,3,18,12,0,18,3,0,12,0,3,18,12};
+				sequence.insert(sequence.end(), array, array+16);
+			}
+			else
+			{
+				turnCubeToRight();
+				sequence.push_back(30);
+			}
+		}
+	}
+	sequence.push_back(500);
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnUpCw();
-                                turnLeftAcw();
-                                turnBackCw();
-                                turnLeftCw();
-                                turnUpAcw();
+	i = 1;
+	//To reset the orange side as the front
+	while(rCube[22] != currentSide[1])
+	{
+		turnCubeToLeft();
+		sequence.push_back(29);
+	}
 
-                            }
-                        }
-                        else if(rCube[21] == 6) //Second edge
-                        {
-                            diff = currentSide[i] - rCube[14];
-                            if(diff == 0)
-                            {
-                                turnLeftAcw();
-                                turnUpAcw();
-                                turnFront2();
-                                turnUpCw();
-                                turnLeftCw();
+	finish =false;
+	//Step 6: Position yellow corner
+	while(!step6)
+	{
+		bool corner1 = false, corner2 = false, corner3 = false, corner4 = false;
+		int pos, pos1 = -1, pos2 = -1, pos3 = -1, pos4 = -1;
+		for(int j=0; j<4; j++)
+		{
+			if(j+1 == 4)
+				temp = 0;
+			else
+				temp = j+1;
+			if(((rCube[8] == 1 && rCube[20] == currentSide[j] && rCube[27] == currentSide[temp]) || (rCube[8] == currentSide[temp] && rCube[20] == 1 && rCube[27] == currentSide[j]) || (rCube[8] == currentSide[j] && rCube[20] == currentSide[temp] && rCube[27] == 1)) && rCube[22] == currentSide[j])
+			{
+				corner1 = true;
+				pos1 = j;
+				break;
+			}
+			else
+				corner1 = false;
+		}
+		for(int j=0; j<4; j++)
+		{
+			if(j+1 == 4)
+				temp = 0;
+			else
+				temp = j+1;
+			if(((rCube[2] == 1 && rCube[29] == currentSide[j] && rCube[36] == currentSide[temp]) || (rCube[2] == currentSide[temp] && rCube[29] == 1 && rCube[36] == currentSide[j]) || (rCube[2] == currentSide[j] && rCube[29] == currentSide[temp] && rCube[36] == 1)) && rCube[31] == currentSide[j])
+			{
+				corner2 = true;
+				pos2 = j;
+				break;
+			}
+			else
+				corner2 = false;
+		}
+		for(int j=0; j<4; j++)
+		{
+			if(j+1 == 4)
+				temp = 0;
+			else
+				temp = j+1;
+			if(((rCube[0] == 1 && rCube[38] == currentSide[j] && rCube[9] == currentSide[temp]) || (rCube[0] == currentSide[temp] && rCube[38] == 1 && rCube[9] == currentSide[j]) || (rCube[0] == currentSide[j] && rCube[38] == currentSide[temp] && rCube[9] == 1)) && rCube[40] == currentSide[j])
+			{
+				corner3 = true;
+				pos3 = j;
+				break;
+			}
+			else
+				corner3 = false;
+		}
+		for(int j=0; j<4; j++)
+		{
+			if(j+1 == 4)
+				temp = 0;
+			else
+				temp = j+1;
+			if(((rCube[6] == 1 && rCube[11] == currentSide[j] && rCube[18] == currentSide[temp]) || (rCube[6] == currentSide[temp] && rCube[11] == 1 && rCube[18] == currentSide[j]) || (rCube[6] == currentSide[j] && rCube[11] == currentSide[temp] && rCube[18] == 1)) && rCube[13] == currentSide[j])
+			{
+				corner4 = true;
+				pos4 = j;
+				break;
+			}
+			else
+				corner4 = false;
+		}
+		if(corner1 && corner2 && corner3 && corner4) //All corner is position correctly
+			step6 = true;
+		else if(!corner1 && !corner2 && !corner3 && !corner4) //All corner is position incorrectly
+		{
+			turnUp();
+			turnRight();
+			turnCUp();
+			turnCLeft();
+			turnUp();
+			turnCRight();
+			turnCUp();
+			turnLeft();
+			int array[] = {0,3,9,11,0,12,9,2};
+			sequence.insert(sequence.end(), array, array+8);
+		}
+		else if(corner1 || corner2 || corner3 || corner4)
+		{
+			while(!finish)
+			{
+				if(corner1)
+					pos = pos1;
+				else if(corner2)
+					pos = pos2;
+				else if(corner3)
+					pos = pos3;
+				else if(corner4)
+					pos = pos4;
 
-                            }
-                            else if(diff == 1 || diff == -3)
-                            {
-                                turnLeftCw();
+				if(i-1 == -1)
+					temp = 3;
+				else
+					temp = i-1;
+				if(i-pos == 0)
+				{
+					turnUp();
+					turnRight();
+					turnCUp();
+					turnCLeft();
+					turnUp();
+					turnCRight();
+					turnCUp();
+					turnLeft();
+					int array[] = {0,3,9,11,0,12,9,2};
+					sequence.insert(sequence.end(), array, array+8);
 
-                            }
-                            else if(diff == -1 || diff == 3)
-                            {
-                                turnLeftAcw();
-                                turnUp2();
-                                turnRight2();
-                                turnUp2();
-                                turnLeftCw();
+					for(int j=0; j<4; j++)
+					{
+						if(j+1 == 4)
+							temp = 0;
+						else
+							temp = j+1;
+						if(((rCube[8] == 1 && rCube[20] == currentSide[j] && rCube[27] == currentSide[temp]) || (rCube[8] == currentSide[temp] && rCube[20] == 1 && rCube[27] == currentSide[j]) || (rCube[8] == currentSide[j] && rCube[20] == currentSide[temp] && rCube[27] == 1)) && rCube[22] == currentSide[j])
+						{
+							corner1 = true;
+							pos1 = j;
+							break;
+						}
+						else
+							corner1 = false;
+					}
+					for(int j=0; j<4; j++)
+					{
+						if(j+1 == 4)
+							temp = 0;
+						else
+							temp = j+1;
+						if(((rCube[2] == 1 && rCube[29] == currentSide[j] && rCube[36] == currentSide[temp]) || (rCube[2] == currentSide[temp] && rCube[29] == 1 && rCube[36] == currentSide[j]) || (rCube[2] == currentSide[j] && rCube[29] == currentSide[temp] && rCube[36] == 1)) && rCube[31] == currentSide[j])
+						{
+							corner2 = true;
+							pos2 = j;
+							break;
+						}
+						else
+							corner2 = false;
+					}
+					for(int j=0; j<4; j++)
+					{
+						if(j+1 == 4)
+							temp = 0;
+						else
+							temp = j+1;
+						if(((rCube[0] == 1 && rCube[38] == currentSide[j] && rCube[9] == currentSide[temp]) || (rCube[0] == currentSide[temp] && rCube[38] == 1 && rCube[9] == currentSide[j]) || (rCube[0] == currentSide[j] && rCube[38] == currentSide[temp] && rCube[9] == 1)) && rCube[40] == currentSide[j])
+						{
+							corner3 = true;
+							pos3 = j;
+							break;
+						}
+						else
+							corner3 = false;
+					}
+					for(int j=0; j<4; j++)
+					{
+						if(j+1 == 4)
+							temp = 0;
+						else
+							temp = j+1;
+						if(((rCube[6] == 1 && rCube[11] == currentSide[j] && rCube[18] == currentSide[temp]) || (rCube[6] == currentSide[temp] && rCube[11] == 1 && rCube[18] == currentSide[j]) || (rCube[6] == currentSide[j] && rCube[11] == currentSide[temp] && rCube[18] == 1)) && rCube[13] == currentSide[j])
+						{
+							corner4 = true;
+							pos4 = j;
+							break;
+						}
+						else
+							corner4 = false;
+					}
+					if(corner1 && corner2 && corner3 && corner4) //All corner is position correctly
+						finish = true;
+				}
+				else
+				{
+					turnCubeToLeft();
+					sequence.push_back(29);
+					i++;
+					if(i == 4)
+						i = 0;
+				}
+			}
+		}
+	}
+	finish = false;
+	sequence.push_back(600);
 
-                            }
-                            else if(diff == -2 || diff == 2)
-                            {
-                                turnLeftAcw();
-                                turnUpCw();
-                                turnBack2();
-                                turnUpAcw();
-                                turnLeftCw();
+	//Step 7: Orient yellow corner
+	while(!step7)
+	{
+		if(rCube[0] == 1 && rCube[2] == 1 && rCube[6] == 1 && rCube[8] == 1)
+		{
+			bool corner1 = false, corner2 = false, corner3 = false, corner4 = false;
+			for(int j=0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if(rCube[20] == currentSide[j] && rCube[27] == currentSide[temp] && rCube[22] == currentSide[j])
+				{
+					corner1 = true;
+					break;
+				}
+				else
+					corner1 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if(rCube[29] == currentSide[j] && rCube[36] == currentSide[temp] && rCube[31] == currentSide[j])
+				{
+					corner2 = true;
+					break;
+				}
+				else
+					corner2 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if(rCube[38] == currentSide[j] && rCube[9] == currentSide[temp] && rCube[40] == currentSide[j])
+				{
+					corner3 = true;
+					break;
+				}
+				else
+					corner3 = false;
+			}
+			for(int j=0; j<4; j++)
+			{
+				if(j+1 == 4)
+					temp = 0;
+				else
+					temp = j+1;
+				if(rCube[11] == currentSide[j] && rCube[18] == currentSide[temp] && rCube[13] == currentSide[j])
+				{
+					corner4 = true;
+					break;
+				}
+				else
+					corner4 = false;
+			}
+			if(corner1 && corner2 && corner3 && corner4)
+				step7 = true;
+		}
+		if(!step7)
+		{
+			counter = 0;
+			if(counter == 4)
+			{
+				return false;
+			}
+			if(rCube[8] != 1)
+			{
+				turnCRight();
+				turnCDown();
+				turnRight();
+				turnDown();
+				int array[] = {12,10,3,1};
+				sequence.insert(sequence.end(), array, array+4);
+				counter++;
+			}
+			else
+			{
+				turnCUp();
+				sequence.push_back(9);
+			}
+		}
+	}
+	sequence.push_back(700);
+	// Double check whole rCube is correct or not
+	while(rCube[22] != 3)
+		turnCubeToLeft();
+	for(int i=0; i<9; i++)
+		if(rCube[i] != 1)
+			return false;
+	for(int i=9; i<18; i++)
+		if(rCube[i] != 2)
+			return false;
+	for(int i=18; i<27; i++)
+		if(rCube[i] != 3)
+			return false;
+	for(int i=27; i<36; i++)
+		if(rCube[i] != 4)
+			return false;
+	for(int i=36; i<45; i++)
+		if(rCube[i] != 5)
+			return false;
+	for(int i=45; i<54; i++)
+		if(rCube[i] != 6)
+			return false;
+			cout<<"\n";
+	return true;
 
-                            }
-                            else if(rCube[23] == 6) //Third edge
-                            {
-                                diff = currentSide[i] - rCube[30];
-                                if(diff == 0)
-                                {
-                                    turnRightCw();
-                                    turnUpCw();
-                                    turnFront2();
-                                    turnUpAcw();
-                                    turnRightAcw();
-                                }
-                                    else if(diff == 1 || diff == -3)
-                                    {
-                                        turnRightCw();
-                                        turnUp2();
-                                        turnLeft2();
-                                        turnUp2();
-                                        turnRightAcw();
+}
 
-
-                                    }
-                                    else if(diff == -1 || diff == 3)
-                                    {
-                                        turnRightAcw();
-
-                                    }
-                                    else if(diff == -2 || diff == 2)
-                                    {
-                                        turnRightCw();
-                                        turnUpAcw();
-                                        turnBack2();
-                                        turnUpCw();
-                                        turnRightAcw();
-
-                                    }
-                                }
-                                else if(rCube[25] == 6) //Fourth edge
-                                {
-                                    diff = currentSide[i] - rCube[46];
-                                    if(diff == 0)
-                                    {
-                                        turnFrontAcw();
-                                        turnRightCw();
-                                        turnUpCw();
-                                        turnFront2();
-                                        turnRightAcw();
-
-                                    }
-                                    else if(diff == 1 || diff == -3)
-                                    {
-                                        turnFrontCw();
-                                        turnLeftCw();
-                                        turnFrontAcw();
-
-                                    }
-                                    else if(diff == -1 || diff == 3)
-                                    {
-                                        turnFrontAcw();
-                                        turnRightAcw();
-                                        turnFrontCw();
-
-                                    }
-                                    else if(diff == -2 || diff == 2)
-                                    {
-                                        turnFrontAcw();
-                                        turnRightCw();
-                                        turnUpAcw();
-                                        turnBack2();
-                                        turnRightAcw();
-
-                                    }
-                                }
-                                cubeLeft();
-
-                                i++;
-                                if(i == 4)
-                                    i = 0;
-                            }
-                        }
-                        if(finish)
-                        {
-
-                            if(rCube[25] != rCube[22])
-                            {
-                                diff = rCube[22] - rCube[25];
-                                if(diff == 1 || diff == -3)
-                                {
-                                    turnMiddleAcw();
-                                    turnStandingCw();
-                                    turnUpCw();
-                                    turnStandingAcw();
-                                    turnUp2();
-                                    turnMiddleCw();
-
-                                }
-                                else if(diff == -1 || diff == 3)
-                                {
-                                    turnMiddleAcw();
-                                    turnStandingAcw();
-                                    turnUpAcw();
-                                    turnStandingCw();
-                                    turnUp2();
-                                    turnMiddleCw();
-
-                                }
-                                else if(diff == 2 || diff == -2)
-                                {
-                                    turnMiddleAcw();
-                                    turnUpCw();
-                                    turnMiddleCw();
-                                    turnMiddleCw();
-                                    turnUpCw();
-                                    turnMiddleCw();
-                                    turnMiddleCw();
-                                    turnUpCw();
-                                    turnMiddleCw();
-
-                                }
-                            }
-                            cubeLeft();
-
-                        }
-                    }
-                }
-
-            }
-
-        cout<<"\n";
-        }
 };
         int main()
         {
+            vector<int> sequence;
+	vector<int> seq;
             // Handle STD_OUTPUT_HANDLE;
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
             cout<<"\n\nR";
@@ -1198,10 +2413,10 @@ void cubeDown()
             cout<<"E";
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
             cout<<"R\n\n";
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-
-            rCube obj1;
-            obj1.rCubeInput();
+            rCube rCube;
+            rCube.rCubeInput();
             // obj1.printrCube();
             // obj1.solvedInput();
             // obj1.turnFrontCw();
@@ -1216,11 +2431,11 @@ void cubeDown()
 //     obj1.printrCube();
             // obj1.cubeUp();
             // obj1.cubeRight();
-            obj1.printrCube();
-            obj1.solver();
-            obj1.printrCube();
+            rCube.printrCube();
+            rCube.solver(sequence);
+            rCube.printrCube();
             // obj1.alignCenter(6);
 //            obj1.printrCube();
-            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
         }
+
