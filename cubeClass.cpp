@@ -9,7 +9,7 @@ public:
     int rCube [54];
     //defining  yellow=1,orange=2,green=3,red=4,blue=5 and white=6 respectively
     //centre block is 22 numbered element
-
+    int moves=0;
     void solvedInput()
     {
         int num=0;
@@ -97,6 +97,7 @@ public:
                 cout << "\n";
         }
         cout << "\n";
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     }
 
     void turnUp()
@@ -120,14 +121,14 @@ public:
             rCube[27+i] = rCube[36+i];
             rCube[36+i] = temp;
         }
-        cout<<"U ";
+
+        moves++;
     }
     void turnCUp()
     {
         turnUp();
         turnUp();
         turnUp();
-        cout<<"U' ";
     }
     void turnUp2()
     {
@@ -156,14 +157,14 @@ public:
             rCube[33+i] = rCube[24+i];
             rCube[24+i] = temp;
         }
-        cout<<"D ";
+
     }
     void turnCDown()
     {
         turnDown();
         turnDown();
         turnDown();
-        cout<<"D' ";
+
     }
     void turnDown2()
     {
@@ -192,14 +193,14 @@ public:
             rCube[45+(i*3)] = rCube[18+(i*3)];
             rCube[18+(i*3)] = temp;
         }
-        cout<<"L ";
+
     }
     void turnCLeft()
     {
         turnLeft();
         turnLeft();
         turnLeft();
-        cout<<"L' ";
+
 
     }
     void turnLeft2()
@@ -228,14 +229,14 @@ public:
             rCube[47+(i*3)] = rCube[42-(i*3)];
             rCube[42-(i*3)] = temp;
         }
-        cout<<"R ";
+
     }
     void turnCRight()
     {
         turnRight();
         turnRight();
         turnRight();
-        cout<<"R' ";
+
     }
     void turnRight2()
     {
@@ -265,14 +266,14 @@ public:
             rCube[47-i] = rCube[27+(i*3)];
             rCube[27+(i*3)] = temp;
         }
-        cout<<"F ";
+
     }
     void turnCFront()
     {
         turnFront();
         turnFront();
         turnFront();
-        cout<<"F' ";
+
     }
     void turnFront2()
     {
@@ -301,7 +302,7 @@ public:
             rCube[53-i] = rCube[15-(i*3)];
             rCube[15-(i*3)] = temp;
         }
-        cout<<"B ";
+
     }
 
     void turnCBack()
@@ -309,7 +310,7 @@ public:
         turnBack();
         turnBack();
         turnBack();
-        cout<<"B' ";
+
     }
     void turnBack2()
     {
@@ -742,7 +743,7 @@ void turnCubeSideToRight()
 //    }
     void displayTurn(vector<int> sequence)
 {
-	cout << "Size of sequence: " << sequence.size() << endl;
+	cout << "Reduced sequence: " << sequence.size() << endl;
 	for(int i=0; i<sequence.size(); i++)
 	{
 		if(sequence[i] == 100)
@@ -932,7 +933,7 @@ void reduce(vector<int>& sequence)
 }
     bool solver(vector<int>& sequence)
     {
-        cout<<"Move Lists: ";
+
         bool finish = false, step1 = false, step2 = false, step3 = false, step4 = false, step5 = false, step6 = false, step7 = false;
 	int diff, diff2, temp;
 	int currentSide[] = {2, 3, 4, 5};
