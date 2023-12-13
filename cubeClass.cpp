@@ -2433,6 +2433,8 @@ void reduce(vector<int>& sequence)
             // obj1.cubeRight();
             rCube.printrCube();
             rCube.solver(sequence);
+            rCube.reduce(sequence);
+            rCube.displayTurn(sequence);
             rCube.printrCube();
             // obj1.alignCenter(6);
 //            obj1.printrCube();
