@@ -29,44 +29,46 @@ public:
             cin>>rCube[i];
         }
     }
+    void drawRectangleWithBorder(int x1, int y1, int x2, int y2, int borderWidth, int fillColor, int borderColor)
+{
+    // Set the fill color
+    setfillstyle(SOLID_FILL, fillColor);
+    // Draw the filled rectangle
+    bar(x1, y1, x2, y2);
+
+    // Draw the border
+    setcolor(borderColor);
+    for (int i = 0; i < borderWidth; ++i)
+    {
+        rectangle(x1 + i, y1 + i, x2 - i, y2 - i);
+    }
+}
+
 void color(int x1,int y1,int x2,int y2,int color)
 {
         switch(color)
         {
         case 1:
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,YELLOW);
-            floodfill(x1+1,y1+1,WHITE);
+           drawRectangleWithBorder(x1,y1,x2,y2,2,YELLOW,BLACK);
             break;
         case 2:
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,BROWN);
-            floodfill(x1+1,y1+1,WHITE);
+            drawRectangleWithBorder(x1,y1,x2,y2,2,MAGENTA,BLACK);
             break;
 
         case 3:
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,GREEN);
-            floodfill(x1+1,y1+1,WHITE);
+            drawRectangleWithBorder(x1,y1,x2,y2,2,GREEN,BLACK);
             break;
 
         case 4:
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,RED);
-            floodfill(x1+1,y1+1,WHITE);
+          drawRectangleWithBorder(x1,y1,x2,y2,2,RED,BLACK);
             break;
 
         case 5:
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,BLUE);
-            floodfill(x1+1,y1+1,WHITE);
+           drawRectangleWithBorder(x1,y1,x2,y2,2,BLUE,BLACK);
             break;
 
         case 6:
-//            setcolor(BLACK);
-            rectangle(x1,y1,x2,y2);
-            setfillstyle(SOLID_FILL,WHITE);
-            floodfill(x1+1,y1+1,WHITE);
+            drawRectangleWithBorder(x1,y1,x2,y2,2,WHITE,BLACK);
             break;
         }
 }
@@ -2501,11 +2503,15 @@ void reduce(vector<int>& sequence)
             rCube.rCubeInput();
             int gd=DETECT, gm;
             initgraph(&gd, &gm, "");
-            rCube.printCube();
-//            rCube.solver(sequence);
-//            rCube.reduce(sequence);
-//            rCube.displayTurn(sequence);
-//            rCube.printrCube();
+            outtextxy(100,0,"RUBIK'S CUBE SOLVER!");
+            outtextxy(100,20,"By Abb Muhaimeen!");
+            outtextxy(0,100,"1.Play!");
+            outtextxy(0,150,"2. ");
+            outtextxy(0,200,"RUBIK'S CUBE SOLVER!");
+            outtextxy(0,250,"RUBIK'S CUBE SOLVER!");
+
+//            rCube.printCube();
+            readimagefile("res/cube.jpg",200,50,750,300);
             getch();
             closegraph();
 
