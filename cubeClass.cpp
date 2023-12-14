@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include <iostream>
 #include <Windows.h>
+#include<graphics.h>
 using namespace std;
 
 class rCube
@@ -28,9 +29,101 @@ public:
             cin>>rCube[i];
         }
     }
+void color(int x1,int y1,int x2,int y2,int color)
+{
+        switch(color)
+        {
+        case 1:
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,YELLOW);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
+        case 2:
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,BROWN);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
 
+        case 3:
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,GREEN);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
 
-    void color(int c)
+        case 4:
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,RED);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
+
+        case 5:
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,BLUE);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
+
+        case 6:
+//            setcolor(BLACK);
+            rectangle(x1,y1,x2,y2);
+            setfillstyle(SOLID_FILL,WHITE);
+            floodfill(x1+1,y1+1,WHITE);
+            break;
+        }
+}
+void printCube(){
+    int x1=0,y1=0,x2=25,y2=25;
+    for(int i=0;i<54;i++){
+        if(i == 0 || i == 3 || i == 6 || i == 45 || i == 48 || i == 51)
+            {
+                x1=x1+75;
+                x2=x2+75;
+//                y1=y1+75;
+//                y2=y2+75;
+            }
+        if(i<9){
+            color(x1,y1,x2,y2,rCube[i]);
+            x1=x1+25;
+            x2=x2+25;
+//            y1+=50;
+//            y2+=50;
+        }
+        else if(i < 18)
+            {
+                int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
+                for(int j=0; j<12; j++)
+                {
+                    color(x1,y1,x2,y2,rCube[i+array[j]]);
+                    x1=x1+25;
+                    x2=x2+25;
+
+                }
+                i+=2;
+                if(i == 17)
+                    i = 44;
+                else{
+                    x1=0;
+                    x2=25;
+                    y1=y1+25;
+                    y2=y2+25;
+                    }
+                }
+            else
+            {
+                color(x1,y1,x2,y2,rCube[i]);
+                x1+=25;
+                x2+=25;
+            }
+
+        if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53){
+                x1=0;
+                x2=25;
+                y1=y1+25;
+                y2=y2+25;
+        }
+    }
+}
+
+    void color2(int c)
     {
 
         switch(c)
@@ -70,7 +163,7 @@ public:
                 cout << "      ";
             if(i < 9)
             {
-                color(rCube[i]);
+                color2(rCube[i]);
                 cout << rCube[i] << " ";
             }
 
@@ -79,7 +172,7 @@ public:
                 int array[12] = {0, 1, 2, 9, 10, 11, 18, 19, 20, 27, 28, 29};
                 for(int j=0; j<12; j++)
                 {
-                    color(rCube[i+array[j]]);
+                    color2(rCube[i+array[j]]);
                     cout << rCube[i+array[j]] << " ";
                 }
                 i+=2;
@@ -90,7 +183,7 @@ public:
             }
             else
             {
-                color(rCube[i]);
+                color2(rCube[i]);
                 cout << rCube[i] << " ";
             }
             if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53)
@@ -729,18 +822,6 @@ void turnCubeSideToRight()
         turnStanding();
     }
 
-//    void alignCenter(int centre)
-//    {
-//        while(rCube[22]!=centre)
-//        {
-//            cubeUp();
-//
-//            if(rCube[22]==centre)break;
-//            cubeRight();
-//
-//        }
-//
-//    }
     void displayTurn(vector<int> sequence)
 {
 	cout << "Reduced sequence: " << sequence.size() << endl;
@@ -2383,7 +2464,7 @@ void reduce(vector<int>& sequence)
 	vector<int> seq;
             // Handle STD_OUTPUT_HANDLE;
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-            cout<<"\n\nR";
+            cout<<"\nR";
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
             cout<<"U";
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
@@ -2413,30 +2494,21 @@ void reduce(vector<int>& sequence)
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
             cout<<"E";
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-            cout<<"R\n\n";
+            cout<<"R\n";
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+            cout<<"         By Abb Muhaimeen\n"<<endl;
             rCube rCube;
             rCube.rCubeInput();
-            // obj1.printrCube();
-            // obj1.solvedInput();
-            // obj1.turnFrontCw();
-            // obj1.turnFrontAcw();
-//     obj1.turnUpCw();
-            // obj1.printrCube();
-//     obj1.turnDownCw();
-//     obj1.printrCube();
-//     obj1.turnDownCw();
-//     obj1.printrCube();
-//     obj1.turnDownCw();
-//     obj1.printrCube();
-            // obj1.cubeUp();
-            // obj1.cubeRight();
-            rCube.printrCube();
-            rCube.solver(sequence);
-            rCube.reduce(sequence);
-            rCube.displayTurn(sequence);
-            rCube.printrCube();
+            int gd=DETECT, gm;
+            initgraph(&gd, &gm, "");
+            rCube.printCube();
+//            rCube.solver(sequence);
+//            rCube.reduce(sequence);
+//            rCube.displayTurn(sequence);
+//            rCube.printrCube();
+            getch();
+            closegraph();
+
             // obj1.alignCenter(6);
 //            obj1.printrCube();
 
