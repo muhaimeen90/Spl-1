@@ -41,6 +41,24 @@ public:
         outtextxy(650,500,"U- UP");
         outtextxy(650,550,"D- DOWN");
     }
+    void helpPage2()
+    {   setcolor(GREEN);
+        settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
+        outtextxy(650,200,"HELP PAGE!");
+        settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
+        outtextxy(650,300,"F- FRONT");
+        outtextxy(650,350,"B- BACK");
+        outtextxy(650,400,"L- LEFT");
+        outtextxy(650,450,"R- RIGHT");
+        outtextxy(650,500,"U- UP");
+        outtextxy(650,550,"D- DOWN");
+        outtextxy(650,600,"M = Middle");
+        outtextxy(650,650,"E = Equator");
+        outtextxy(650,700,"S = Standing");
+        outtextxy(650,750,"X = Rotate the entire Rubik's Cube to Up, turn direction as R");
+        outtextxy(650,800,"Y = Rotate the entire Rubik's Cube to Left, turn direction as U");
+        outtextxy(650,850,"Z = Rotate the entire Rubik's Cube to Side Right, turn direction as F");
+    }
     void drawRectangleWithBorder(int x1, int y1, int x2, int y2, int borderWidth, int fillColor, int borderColor)
     {
         // Set the fill color
@@ -850,233 +868,233 @@ public:
         for(int i=0; i<sequence.size(); i++)
         {
             if(sequence[i] == 100){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,250,"Solved Step 1! ");
                 x=650;
                 y=300;
 
             }
             else if(sequence[i] == 200){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,300,"Solved Step 2! ");
-                x=650;
-                y=350;
-
-            }
-            else if(sequence[i] == 300){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,350,"Solved Step 3! ");
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,350,"Solved Step 2! ");
                 x=650;
                 y=400;
 
             }
-                else if(sequence[i] == 400){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,400,"Solved Step 4! ");
+            else if(sequence[i] == 300){
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,450,"Solved Step 3! ");
                 x=650;
-                y=450;
+                y=500;
+
+            }
+                else if(sequence[i] == 400){
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,550,"Solved Step 4! ");
+                x=650;
+                y=600;
                 }
             else if(sequence[i] == 500)
                 {
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,450,"Solved Step 5: ");
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,650,"Solved Step 5! ");
                 x=650;
-                y=500;
+                y=700;
                 }
 
             else if(sequence[i] == 600)
                 {
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,500,"Solved Step 6: ");
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,750,"Solved Step 6! ");
                 x=650;
-                y=550;
+                y=800;
                 }
             else if(sequence[i] == 700)
                 {
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,550,"Solved Step 7! ");
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
+                outtextxy(650,850,"Solved Step 7! ");
                 x=650;
-                y=600;
+                y=900;
                 }
             else if(sequence[i] == 0)
                 {
                     outtextxy(x,y,"U");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 1)
                  {
                     outtextxy(x,y,"D");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 2)
                  {
                     outtextxy(x,y,"L");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 3)
                  {
                     outtextxy(x,y,"R");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 4)
                  {
                     outtextxy(x,y,"F");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 5)
                  {
                     outtextxy(x,y,"B");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 6)
                  {
                     outtextxy(x,y,"M");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 7)
                  {
                     outtextxy(x,y,"E");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 8)
                  {
                     outtextxy(x,y,"S");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 9)
                  {
                     outtextxy(x,y,"U'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 10)
                  {
                     outtextxy(x,y,"D'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 11)
                  {
                     outtextxy(x,y,"L'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 12)
                  {
                     outtextxy(x,y,"R'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 13)
                  {
                     outtextxy(x,y,"F'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 14)
                 {
                     outtextxy(x,y,"B'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 15)
                  {
                     outtextxy(x,y,"M'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 16)
                  {
                     outtextxy(x,y,"E'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 17)
                  {
                     outtextxy(x,y,"S'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 18)
                  {
                     outtextxy(x,y,"U2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 19)
                  {
                     outtextxy(x,y,"D2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 20)
                  {
                     outtextxy(x,y,"L2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 21)
                 {
                     outtextxy(x,y,"R2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 22)
                  {
                     outtextxy(x,y,"F2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 23)
                  {
                     outtextxy(x,y,"B2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 24)
                  {
                     outtextxy(x,y,"M2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 25)
                  {
                     outtextxy(x,y,"E2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 26)
                  {
                     outtextxy(x,y,"S2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 27)
                  {
                     outtextxy(x,y,"X");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 28)
                  {
                     outtextxy(x,y,"X'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 29)
                  {
                     outtextxy(x,y,"Y");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 30)
                  {
                     outtextxy(x,y,"Y'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 31)
                  {
                     outtextxy(x,y,"Z");
-                    x+=5;
+                    x+=20;
                 }
             else if(sequence[i] == 32)
                  {
                     outtextxy(x,y,"Z'");
-                    x+=5;
+                    x+=25;
                 }
             else if(sequence[i] == 33)
                  {
                     outtextxy(x,y,"X2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 34)
                  {
                     outtextxy(x,y,"Y2");
-                    x+=5;
+                    x+=35;
                 }
             else if(sequence[i] == 35)
                  {
                     outtextxy(x,y,"Z2");
-                    x+=5;
+                    x+=35;
                 }
         }
 
@@ -2639,7 +2657,7 @@ int main()
     settextstyle(EUROPEAN_FONT,HORIZ_DIR,2);
     outtextxy(650,200,"1.Play!");
     outtextxy(650,250,"2.Solve!");
-    outtextxy(650,300,"3.Quit");
+    outtextxy(650,300,"3.Manual");
 
     char choice= getch();
     cleardevice();
@@ -2698,6 +2716,9 @@ int main()
 			rCube.reduce(sequence);
 			rCube.displayTurn(sequence);
             rCube.printCube(0,500);
+    }
+    else if(choice=='3'){
+        rCube.helpPage2();
     }
     getch();
     closegraph();
