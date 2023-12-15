@@ -24,7 +24,7 @@ public:
     void helpPage()
     {   setcolor(GREEN);
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-        outtextxy(650,200,"HELP PAGE!");
+        outtextxy(650,200,"GUIDE");
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
         outtextxy(650,300,"F- FRONT");
         outtextxy(650,350,"B- BACK");
