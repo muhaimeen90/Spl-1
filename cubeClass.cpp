@@ -11,15 +11,7 @@ public:
     //defining  yellow=1,orange=2,green=3,red=4,blue=5 and white=6 respectively
     //centre block is 22 numbered element
     int moves=0;
-    void solvedInput()
-    {
-        int num=0;
-        for(int i=0; i<54; i++)
-        {
-            if(i%9==0)num++;
-            rCube[i]=num;
-        }
-    }
+
 
     void rCubeInput()
     {
@@ -2707,8 +2699,16 @@ int main()
                 rCube.turnRight();
                 rCube.printCube(0,0);
                 break;
+                case 'S':
+            rCube.printCube(0,0);
+            rCube.solver(sequence);
+			rCube.reduce(sequence);
+			rCube.displayTurn(sequence);
+            rCube.printCube(0,500);
+            break;
             }
-        }
+            }
+
     }
     else if(choice=='2'){
             rCube.printCube(0,0);
