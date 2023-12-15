@@ -84,9 +84,9 @@ public:
             break;
         }
     }
-    void printCube()
+    void printCube(int x, int y)
     {
-        int x1=0,y1=0,x2=50,y2=50;
+        int x1=x,y1=y,x2=x1+50,y2=y1+50;
         for(int i=0; i<54; i++)
         {
             if(i == 0 || i == 3 || i == 6 || i == 45 || i == 48 || i == 51)
@@ -119,8 +119,8 @@ public:
                     i = 44;
                 else
                 {
-                    x1=0;
-                    x2=50;
+                    x1=x;
+                    x2=x1+50;
                     y1=y1+50;
                     y2=y2+50;
                 }
@@ -134,8 +134,8 @@ public:
 
             if(i == 2 || i == 5 || i == 8 || i == 38 || i == 41 || i == 44 || i == 47 || i == 50 || i == 53)
             {
-                x1=0;
-                x2=50;
+                x1=x;
+                x2=x1+50;
                 y1=y1+50;
                 y2=y2+50;
             }
@@ -844,122 +844,242 @@ public:
 
     void displayTurn(vector<int> sequence)
     {
+        setcolor(WHITE);
         cout << "Reduced sequence: " << sequence.size() << endl;
-        int x=650;
+        int x=650,y=200;
         for(int i=0; i<sequence.size(); i++)
         {
             if(sequence[i] == 100){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-                outtextxy(650,200,"White Cross! ");
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,250,"Solved Step 1: ");
+                outtextxy(650,250,"Solved Step 1! ");
                 x=650;
-                printCube();
+                y=300;
+
             }
             else if(sequence[i] == 200){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-                outtextxy(650,200,"White Corners! ");
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,250,"Solved Step 2: ");
+                outtextxy(650,300,"Solved Step 2! ");
                 x=650;
-                printCube();
+                y=350;
+
             }
             else if(sequence[i] == 300){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-                outtextxy(650,200,"Second Layer! ");
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,250,"Solved Step 3: ");
+                outtextxy(650,350,"Solved Step 3! ");
                 x=650;
-                printCube();
+                y=400;
+
             }
                 else if(sequence[i] == 400){
-                settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-                outtextxy(650,200," Layer! ");
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-                outtextxy(650,250,"Solved Step 4: ");
+                outtextxy(650,400,"Solved Step 4! ");
                 x=650;
-                printCube();
+                y=450;
                 }
             else if(sequence[i] == 500)
-                cout << "\nSolved step 5\n\n";
+                {
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
+                outtextxy(650,450,"Solved Step 5: ");
+                x=650;
+                y=500;
+                }
+
             else if(sequence[i] == 600)
-                cout << "\nSolved step 6\n\n";
+                {
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
+                outtextxy(650,500,"Solved Step 6: ");
+                x=650;
+                y=550;
+                }
             else if(sequence[i] == 700)
-                cout << "\nSolved step 7\n";
+                {
+                settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
+                outtextxy(650,550,"Solved Step 7! ");
+                x=650;
+                y=600;
+                }
             else if(sequence[i] == 0)
-                cout << "U";
+                {
+                    outtextxy(x,y,"U");
+                    x+=5;
+                }
             else if(sequence[i] == 1)
-                cout << "D";
+                 {
+                    outtextxy(x,y,"D");
+                    x+=5;
+                }
             else if(sequence[i] == 2)
-                cout << "L";
+                 {
+                    outtextxy(x,y,"L");
+                    x+=5;
+                }
             else if(sequence[i] == 3)
-                cout << "R";
+                 {
+                    outtextxy(x,y,"R");
+                    x+=5;
+                }
             else if(sequence[i] == 4)
-                cout << "F";
+                 {
+                    outtextxy(x,y,"F");
+                    x+=5;
+                }
             else if(sequence[i] == 5)
-                cout << "B";
+                 {
+                    outtextxy(x,y,"B");
+                    x+=5;
+                }
             else if(sequence[i] == 6)
-                cout << "M";
+                 {
+                    outtextxy(x,y,"M");
+                    x+=5;
+                }
             else if(sequence[i] == 7)
-                cout << "E";
+                 {
+                    outtextxy(x,y,"E");
+                    x+=5;
+                }
             else if(sequence[i] == 8)
-                cout << "S";
+                 {
+                    outtextxy(x,y,"S");
+                    x+=5;
+                }
             else if(sequence[i] == 9)
-                cout << "U'";
+                 {
+                    outtextxy(x,y,"U'");
+                    x+=5;
+                }
             else if(sequence[i] == 10)
-                cout << "D'";
+                 {
+                    outtextxy(x,y,"D'");
+                    x+=5;
+                }
             else if(sequence[i] == 11)
-                cout << "L'";
+                 {
+                    outtextxy(x,y,"L'");
+                    x+=5;
+                }
             else if(sequence[i] == 12)
-                cout << "R'";
+                 {
+                    outtextxy(x,y,"R'");
+                    x+=5;
+                }
             else if(sequence[i] == 13)
-                cout << "F'";
+                 {
+                    outtextxy(x,y,"F'");
+                    x+=5;
+                }
             else if(sequence[i] == 14)
-                cout << "B'";
+                {
+                    outtextxy(x,y,"B'");
+                    x+=5;
+                }
             else if(sequence[i] == 15)
-                cout << "M'";
+                 {
+                    outtextxy(x,y,"M'");
+                    x+=5;
+                }
             else if(sequence[i] == 16)
-                cout << "E'";
+                 {
+                    outtextxy(x,y,"E'");
+                    x+=5;
+                }
             else if(sequence[i] == 17)
-                cout << "S'";
+                 {
+                    outtextxy(x,y,"S'");
+                    x+=5;
+                }
             else if(sequence[i] == 18)
-                cout << "U2";
+                 {
+                    outtextxy(x,y,"U2");
+                    x+=5;
+                }
             else if(sequence[i] == 19)
-                cout << "D2";
+                 {
+                    outtextxy(x,y,"D2");
+                    x+=5;
+                }
             else if(sequence[i] == 20)
-                cout << "L2";
+                 {
+                    outtextxy(x,y,"L2");
+                    x+=5;
+                }
             else if(sequence[i] == 21)
-                cout << "R2";
+                {
+                    outtextxy(x,y,"R2");
+                    x+=5;
+                }
             else if(sequence[i] == 22)
-                cout << "F2";
+                 {
+                    outtextxy(x,y,"F2");
+                    x+=5;
+                }
             else if(sequence[i] == 23)
-                cout << "B2";
+                 {
+                    outtextxy(x,y,"B2");
+                    x+=5;
+                }
             else if(sequence[i] == 24)
-                cout << "M2";
+                 {
+                    outtextxy(x,y,"M2");
+                    x+=5;
+                }
             else if(sequence[i] == 25)
-                cout << "E2";
+                 {
+                    outtextxy(x,y,"E2");
+                    x+=5;
+                }
             else if(sequence[i] == 26)
-                cout << "S2";
+                 {
+                    outtextxy(x,y,"S2");
+                    x+=5;
+                }
             else if(sequence[i] == 27)
-                cout << "X";
+                 {
+                    outtextxy(x,y,"X");
+                    x+=5;
+                }
             else if(sequence[i] == 28)
-                cout << "X'";
+                 {
+                    outtextxy(x,y,"X'");
+                    x+=5;
+                }
             else if(sequence[i] == 29)
-                cout << "Y";
+                 {
+                    outtextxy(x,y,"Y");
+                    x+=5;
+                }
             else if(sequence[i] == 30)
-                cout << "Y'";
+                 {
+                    outtextxy(x,y,"Y'");
+                    x+=5;
+                }
             else if(sequence[i] == 31)
-                cout << "Z";
+                 {
+                    outtextxy(x,y,"Z");
+                    x+=5;
+                }
             else if(sequence[i] == 32)
-                cout << "Z'";
+                 {
+                    outtextxy(x,y,"Z'");
+                    x+=5;
+                }
             else if(sequence[i] == 33)
-                cout << "X2";
+                 {
+                    outtextxy(x,y,"X2");
+                    x+=5;
+                }
             else if(sequence[i] == 34)
-                cout << "Y2";
+                 {
+                    outtextxy(x,y,"Y2");
+                    x+=5;
+                }
             else if(sequence[i] == 35)
-                cout << "Z2";
+                 {
+                    outtextxy(x,y,"Z2");
+                    x+=5;
+                }
         }
-        cout << "\n";
+
     }
 
     void reduce(vector<int>& sequence)
@@ -2507,41 +2627,6 @@ int main()
 {
     vector<int> sequence;
     vector<int> seq;
-    // Handle STD_OUTPUT_HANDLE;
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    cout<<"\nR";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    cout<<"U";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    cout<<"B";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-    cout<<"I";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-    cout<<"K";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
-    cout<<"'S";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    cout<<" C";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    cout<<"U";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    cout<<"B";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-    cout<<"E ";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
-    cout<<"S";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 6);
-    cout<<"O";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    cout<<"L";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 2);
-    cout<<"V";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    cout<<"E";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
-    cout<<"R\n";
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-    cout<<"         By Abb Muhaimeen\n"<<endl;
     rCube rCube;
     rCube.rCubeInput();
     int height= GetSystemMetrics(SM_CYSCREEN);
@@ -2549,7 +2634,7 @@ int main()
     initwindow(width,height,"SOLVER");
     readimagefile("res/cube.jpg",600,400,1400,700);
     settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
-    outtextxy(650,0,"RUBIK'S CUBE SOLVER!");
+    outtextxy(650,0,"PixelCube!");
     outtextxy(650,50,"By Abb Muhaimeen!");
     settextstyle(EUROPEAN_FONT,HORIZ_DIR,2);
     outtextxy(650,200,"1.Play!");
@@ -2561,7 +2646,7 @@ int main()
 
     if(choice=='1')
     {
-        rCube.printCube();
+        rCube.printCube(0,0);
         rCube.helpPage();
         while(1)
         {
@@ -2572,45 +2657,47 @@ int main()
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnFront();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             case 'B':
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnBack();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             case 'U':
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnUp();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             case 'D':
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnDown();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             case 'L':
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnLeft();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             case 'R':
                 cleardevice();
                 rCube.helpPage();
                 rCube.turnRight();
-                rCube.printCube();
+                rCube.printCube(0,0);
                 break;
             }
         }
     }
-    else if(choice==2){
+    else if(choice=='2'){
+            rCube.printCube(0,0);
             rCube.solver(sequence);
 			rCube.reduce(sequence);
 			rCube.displayTurn(sequence);
+            rCube.printCube(0,500);
     }
     getch();
     closegraph();
