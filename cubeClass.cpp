@@ -22,7 +22,8 @@ public:
         }
     }
     void helpPage()
-    {   setcolor(GREEN);
+    {
+        setcolor(GREEN);
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
         outtextxy(650,200,"GUIDE");
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
@@ -34,7 +35,8 @@ public:
         outtextxy(650,550,"D- DOWN");
     }
     void helpPage2()
-    {   setcolor(GREEN);
+    {
+        setcolor(GREEN);
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
         outtextxy(650,200,"HELP PAGE!");
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
@@ -859,235 +861,239 @@ public:
         int x=650,y=200;
         for(int i=0; i<sequence.size(); i++)
         {
-            if(sequence[i] == 100){
+            if(sequence[i] == 100)
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,250,"Solved Step 1! ");
                 x=650;
                 y=300;
 
             }
-            else if(sequence[i] == 200){
+            else if(sequence[i] == 200)
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,350,"Solved Step 2! ");
                 x=650;
                 y=400;
 
             }
-            else if(sequence[i] == 300){
+            else if(sequence[i] == 300)
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,450,"Solved Step 3! ");
                 x=650;
                 y=500;
 
             }
-                else if(sequence[i] == 400){
+            else if(sequence[i] == 400)
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,550,"Solved Step 4! ");
                 x=650;
                 y=600;
-                }
+            }
             else if(sequence[i] == 500)
-                {
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,650,"Solved Step 5! ");
                 x=650;
                 y=700;
-                }
+            }
 
             else if(sequence[i] == 600)
-                {
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,750,"Solved Step 6! ");
                 x=650;
                 y=800;
-                }
+            }
             else if(sequence[i] == 700)
-                {
+            {
                 settextstyle(EUROPEAN_FONT,HORIZ_DIR,1);
                 outtextxy(650,850,"Solved Step 7! ");
                 x=650;
                 y=900;
-                }
+            }
             else if(sequence[i] == 0)
-                {
-                    outtextxy(x,y,"U");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"U");
+                x+=20;
+            }
             else if(sequence[i] == 1)
-                 {
-                    outtextxy(x,y,"D");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"D");
+                x+=20;
+            }
             else if(sequence[i] == 2)
-                 {
-                    outtextxy(x,y,"L");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"L");
+                x+=20;
+            }
             else if(sequence[i] == 3)
-                 {
-                    outtextxy(x,y,"R");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"R");
+                x+=20;
+            }
             else if(sequence[i] == 4)
-                 {
-                    outtextxy(x,y,"F");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"F");
+                x+=20;
+            }
             else if(sequence[i] == 5)
-                 {
-                    outtextxy(x,y,"B");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"B");
+                x+=20;
+            }
             else if(sequence[i] == 6)
-                 {
-                    outtextxy(x,y,"M");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"M");
+                x+=20;
+            }
             else if(sequence[i] == 7)
-                 {
-                    outtextxy(x,y,"E");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"E");
+                x+=20;
+            }
             else if(sequence[i] == 8)
-                 {
-                    outtextxy(x,y,"S");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"S");
+                x+=20;
+            }
             else if(sequence[i] == 9)
-                 {
-                    outtextxy(x,y,"U'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"U'");
+                x+=25;
+            }
             else if(sequence[i] == 10)
-                 {
-                    outtextxy(x,y,"D'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"D'");
+                x+=25;
+            }
             else if(sequence[i] == 11)
-                 {
-                    outtextxy(x,y,"L'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"L'");
+                x+=25;
+            }
             else if(sequence[i] == 12)
-                 {
-                    outtextxy(x,y,"R'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"R'");
+                x+=25;
+            }
             else if(sequence[i] == 13)
-                 {
-                    outtextxy(x,y,"F'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"F'");
+                x+=25;
+            }
             else if(sequence[i] == 14)
-                {
-                    outtextxy(x,y,"B'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"B'");
+                x+=25;
+            }
             else if(sequence[i] == 15)
-                 {
-                    outtextxy(x,y,"M'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"M'");
+                x+=25;
+            }
             else if(sequence[i] == 16)
-                 {
-                    outtextxy(x,y,"E'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"E'");
+                x+=25;
+            }
             else if(sequence[i] == 17)
-                 {
-                    outtextxy(x,y,"S'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"S'");
+                x+=25;
+            }
             else if(sequence[i] == 18)
-                 {
-                    outtextxy(x,y,"U2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"U2");
+                x+=35;
+            }
             else if(sequence[i] == 19)
-                 {
-                    outtextxy(x,y,"D2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"D2");
+                x+=35;
+            }
             else if(sequence[i] == 20)
-                 {
-                    outtextxy(x,y,"L2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"L2");
+                x+=35;
+            }
             else if(sequence[i] == 21)
-                {
-                    outtextxy(x,y,"R2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"R2");
+                x+=35;
+            }
             else if(sequence[i] == 22)
-                 {
-                    outtextxy(x,y,"F2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"F2");
+                x+=35;
+            }
             else if(sequence[i] == 23)
-                 {
-                    outtextxy(x,y,"B2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"B2");
+                x+=35;
+            }
             else if(sequence[i] == 24)
-                 {
-                    outtextxy(x,y,"M2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"M2");
+                x+=35;
+            }
             else if(sequence[i] == 25)
-                 {
-                    outtextxy(x,y,"E2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"E2");
+                x+=35;
+            }
             else if(sequence[i] == 26)
-                 {
-                    outtextxy(x,y,"S2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"S2");
+                x+=35;
+            }
             else if(sequence[i] == 27)
-                 {
-                    outtextxy(x,y,"X");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"X");
+                x+=20;
+            }
             else if(sequence[i] == 28)
-                 {
-                    outtextxy(x,y,"X'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"X'");
+                x+=25;
+            }
             else if(sequence[i] == 29)
-                 {
-                    outtextxy(x,y,"Y");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"Y");
+                x+=20;
+            }
             else if(sequence[i] == 30)
-                 {
-                    outtextxy(x,y,"Y'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"Y'");
+                x+=25;
+            }
             else if(sequence[i] == 31)
-                 {
-                    outtextxy(x,y,"Z");
-                    x+=20;
-                }
+            {
+                outtextxy(x,y,"Z");
+                x+=20;
+            }
             else if(sequence[i] == 32)
-                 {
-                    outtextxy(x,y,"Z'");
-                    x+=25;
-                }
+            {
+                outtextxy(x,y,"Z'");
+                x+=25;
+            }
             else if(sequence[i] == 33)
-                 {
-                    outtextxy(x,y,"X2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"X2");
+                x+=35;
+            }
             else if(sequence[i] == 34)
-                 {
-                    outtextxy(x,y,"Y2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"Y2");
+                x+=35;
+            }
             else if(sequence[i] == 35)
-                 {
-                    outtextxy(x,y,"Z2");
-                    x+=35;
-                }
+            {
+                outtextxy(x,y,"Z2");
+                x+=35;
+            }
         }
 
     }
@@ -2699,25 +2705,27 @@ int main()
                 rCube.turnRight();
                 rCube.printCube(0,0);
                 break;
-                case 'S':
-            rCube.printCube(0,0);
-            rCube.solver(sequence);
-			rCube.reduce(sequence);
-			rCube.displayTurn(sequence);
-            rCube.printCube(0,500);
-            break;
+            case 'S':
+                rCube.printCube(0,0);
+                rCube.solver(sequence);
+                rCube.reduce(sequence);
+                rCube.displayTurn(sequence);
+                rCube.printCube(0,500);
+                break;
             }
-            }
+        }
 
     }
-    else if(choice=='2'){
-            rCube.printCube(0,0);
-            rCube.solver(sequence);
-			rCube.reduce(sequence);
-			rCube.displayTurn(sequence);
-            rCube.printCube(0,500);
+    else if(choice=='2')
+    {
+        rCube.printCube(0,0);
+        rCube.solver(sequence);
+        rCube.reduce(sequence);
+        rCube.displayTurn(sequence);
+        rCube.printCube(0,500);
     }
-    else if(choice=='3'){
+    else if(choice=='3')
+    {
         rCube.helpPage2();
     }
     getch();
