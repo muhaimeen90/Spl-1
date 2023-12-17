@@ -27,12 +27,12 @@ public:
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,5);
         outtextxy(650,200,"GUIDE");
         settextstyle(EUROPEAN_FONT,HORIZ_DIR,3);
-        outtextxy(650,300,"F- FRONT");
-        outtextxy(650,350,"B- BACK");
-        outtextxy(650,400,"L- LEFT");
-        outtextxy(650,450,"R- RIGHT");
-        outtextxy(650,500,"U- UP");
-        outtextxy(650,550,"D- DOWN");
+        outtextxy(650,300,"Press F- FRONT");
+        outtextxy(650,350,"Press B- BACK");
+        outtextxy(650,400,"Press L- LEFT");
+        outtextxy(650,450,"Press R- RIGHT");
+        outtextxy(650,500,"Press U- UP");
+        outtextxy(650,550,"Press D- DOWN");
     }
     void helpPage2()
     {
